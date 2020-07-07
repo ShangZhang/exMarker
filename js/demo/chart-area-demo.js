@@ -1,5 +1,5 @@
 // Set new default font family and font color to mimic Bootstrap's default styling
-Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+(Chart.defaults.global.defaultFontFamily = 'Nunito'), '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#858796';
 
 function number_format(number, decimals, dec_point, thousands_sep) {
@@ -8,10 +8,10 @@ function number_format(number, decimals, dec_point, thousands_sep) {
   number = (number + '').replace(',', '').replace(' ', '');
   var n = !isFinite(+number) ? 0 : +number,
     prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
-    sep = (typeof thousands_sep === 'undefined') ? ',' : thousands_sep,
-    dec = (typeof dec_point === 'undefined') ? '.' : dec_point,
+    sep = typeof thousands_sep === 'undefined' ? ',' : thousands_sep,
+    dec = typeof dec_point === 'undefined' ? '.' : dec_point,
     s = '',
-    toFixedFix = function(n, prec) {
+    toFixedFix = function (n, prec) {
       var k = Math.pow(10, prec);
       return '' + Math.round(n * k) / k;
     };
@@ -28,91 +28,409 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 }
 
 // Area Chart Example
-var ctx = document.getElementById("myAreaChart");
-var myLineChart = new Chart(ctx, {
-  type: 'line',
+var ctx = document.getElementById('myAreaChart').getContext('2d');
+var myChart = new Chart(ctx, {
+  type: 'horizontalBar',
+  intersect: true,
+  // options: {
+  //   title: {
+  //     //标题
+  //     display: true,
+  //     text: '访问统计',
+  //     fontColor: '#f00',
+  //   },
+  //   legend: {
+  //     //图例
+  //     display: true,
+  //     color: tick_color,
+  //     labels: {
+  //       fontColor: '#f00',
+  //     },
+  //   },
+  //   scales: {
+  //     xAxes: [
+  //       {
+  //         gridLines: {
+  //           //网格
+  //           color: '#f00',
+  //         },
+  //         ticks: {
+  //           //刻度
+  //           fontColor: '#f00',
+  //         },
+  //       },
+  //     ],
+  //   },
+  // },
   data: {
-    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-    datasets: [{
-      label: "Earnings",
-      lineTension: 0.3,
-      backgroundColor: "rgba(78, 115, 223, 0.05)",
-      borderColor: "rgba(78, 115, 223, 1)",
-      pointRadius: 3,
-      pointBackgroundColor: "rgba(78, 115, 223, 1)",
-      pointBorderColor: "rgba(78, 115, 223, 1)",
-      pointHoverRadius: 3,
-      pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
-      pointHoverBorderColor: "rgba(78, 115, 223, 1)",
-      pointHitRadius: 10,
-      pointBorderWidth: 2,
-      data: [0, 10000, 5000, 15000, 10000, 20000, 15000, 25000, 20000, 30000, 25000, 40000],
-    }],
+    labels: [
+      'Acute lymphoblastic leukemia',
+      'Acute myeloid leukemia',
+      'Acute rejection after liver transplantation',
+      'Biliary tract cancer',
+      'Bladder cancer',
+      'Breast cancer',
+      'Chronic fatigue syndrome',
+      'Chronic myeloid leukemia',
+      'Colorectal adenoma',
+      'Colorectal cancer',
+      'Coronary heart disease',
+      'Esophageal cancer',
+      'Gastric cancer',
+      'Gastrointestinal stromal tumor',
+      'Glioblastoma',
+      'Healthy pregnancy',
+      'Hepatobiliary cancer',
+      'Liver cancer',
+      'Liver dysfunction',
+      'Lung cancer',
+      'Melanoma',
+      'Multiple myeloma',
+      'Ovarian cancer',
+      'Pancreatic cancer',
+      'Pituitary adenoma',
+      'Prostate cancer',
+      'Renal cancer',
+      'Spontaneously preterm',
+      'Testicular cancer',
+      'Thyroid cancer',
+      'Urothelial cancer',
+    ],
+    datasets: [
+      {
+        label: 'Level 1',
+        data: [5, 3, 0, 0, 1, 14, 0, 1, 0, 14, 0, 0, 1, 1, 0, 0, 0, 1, 0, 7, 1, 5, 8, 2, 0, 5, 0, 0, 1, 1, 1],
+        backgroundColor: [
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+        ],
+        borderColor: [
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+          '#1cc88a',
+        ],
+        borderWidth: 1,
+      },
+      {
+        label: 'Level 2',
+        data: [0, 0, 0, 0, 0, 44, 0, 0, 0, 220, 0, 91, 158, 0, 15, 0, 0, 232, 0, 238, 0, 22, 37, 136, 0, 26, 13, 0, 0, 0, 0],
+        backgroundColor: [
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+        ],
+        borderColor: [
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+          '#36b9cc',
+        ],
+        borderWidth: 1,
+      },
+      {
+        label: 'Level 3',
+        data: [0, 0, 0, 66, 0, 2122, 2, 0, 0, 1018, 797, 0, 0, 0, 108, 1639, 231, 6262, 0, 141, 0, 374, 0, 3319, 112, 1002, 486, 118, 0, 0, 0],
+        backgroundColor: [
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+        ],
+        borderColor: [
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+          '#f6c23e',
+        ],
+        borderWidth: 1,
+      },
+      {
+        label: 'Level 4',
+        data: [0, 0, 8, 186, 0, 3826, 0, 0, 2, 4765, 1222, 0, 0, 0, 2527, 289, 5143, 862, 3, 4095, 0, 226, 15, 4606, 1, 4, 50, 0, 0, 0, 0],
+        backgroundColor: [
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+        ],
+        borderColor: [
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+          '#e74a3b',
+        ],
+        borderWidth: 1,
+      },
+    ],
   },
   options: {
-    maintainAspectRatio: false,
-    layout: {
-      padding: {
-        left: 10,
-        right: 25,
-        top: 25,
-        bottom: 0
-      }
-    },
     scales: {
-      xAxes: [{
-        time: {
-          unit: 'date'
+      xAxes: [
+        {
+          stacked: true,
+          // gridLines: {
+          //   //网格
+          //   color: '#FFF',
+          // },
         },
-        gridLines: {
-          display: false,
-          drawBorder: false
+      ],
+      yAxes: [
+        {
+          stacked: true,
+          gridLines: {
+            //网格
+            color: '#FFF',
+          },
         },
-        ticks: {
-          maxTicksLimit: 7
-        }
-      }],
-      yAxes: [{
-        ticks: {
-          maxTicksLimit: 5,
-          padding: 10,
-          // Include a dollar sign in the ticks
-          callback: function(value, index, values) {
-            return '$' + number_format(value);
-          }
-        },
-        gridLines: {
-          color: "rgb(234, 236, 244)",
-          zeroLineColor: "rgb(234, 236, 244)",
-          drawBorder: false,
-          borderDash: [2],
-          zeroLineBorderDash: [2]
-        }
-      }],
+      ],
     },
-    legend: {
-      display: false
-    },
-    tooltips: {
-      backgroundColor: "rgb(255,255,255)",
-      bodyFontColor: "#858796",
-      titleMarginBottom: 10,
-      titleFontColor: '#6e707e',
-      titleFontSize: 14,
-      borderColor: '#dddfeb',
-      borderWidth: 1,
-      xPadding: 15,
-      yPadding: 15,
-      displayColors: false,
-      intersect: false,
-      mode: 'index',
-      caretPadding: 10,
-      callbacks: {
-        label: function(tooltipItem, chart) {
-          var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-          return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
-        }
-      }
-    }
-  }
+    // title: {
+    //   //标题
+    //   display: true,
+    //   text: '访问统计',
+    //   fontColor: '#f00',
+    // },
+    // legend: {
+    //   //图例
+    //   display: true,
+    //   color: tick_color,
+    //   labels: {
+    //     fontColor: '#f00',
+    //   },
+    // },
+    // scales: {
+    //   xAxes: [
+    //     {
+    //       gridLines: {
+    //         //网格
+    //         color: '#f00',
+    //       },
+    //       ticks: {
+    //         //刻度
+    //         fontColor: '#f00',
+    //       },
+    //     },
+    //   ],
+    // },
+  },
 });
