@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="exMarker-evaluate exRNA biomarker for liquid biopsy" />
+    <meta name="author" content="shang_zhang@foxmail.com" />
+
+    <title class="page-header">exMarker-evaluate exRNA biomarker for liquid biopsy</title>
+    <link rel="icon" href="./exmarker/img/exmarker_icon_red.svg" sizes="32x32" />
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet"
+    />
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this page -->
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
+    <!-- ExMarker styles -->
+    <link rel="stylesheet" href="./exmarker/css/exmarker.css" />
+  </head>
+
+  <body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <!-- Sidebar - Brand -->
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+          <div class="sidebar-brand-icon rotate-n-15">
+            <img
+              class="img-responsive"
+              src="./exmarker/img/exmarker_icon_white.svg"
+              width="42"
+              height="42"
+              alt="exMarker icon"
+            />
+          </div>
+          <div class="sidebar-brand-text mx-3">exMarker</div>
+        </a>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0" />
+
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">
+            <!-- <i class="fas fa-fw fa-tachometer-alt"></i> -->
+            <i class="fas fa-home"></i>
+            <span>Home</span></a
+          >
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider" />
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+          Functions
+        </div>
+
+        <!-- Nav Item - Evaluate Collapse Menu -->
+        <li class="nav-item">
+          <a
+            class="nav-link collapsed"
+            href="#"
+            data-toggle="collapse"
+            data-target="#collapseEvaluate"
+            aria-expanded="true"
+            aria-controls="collapseTwo"
+          >
+            <i class="fas fa-fw fa-cubes"></i>
+            <span>Evaluate</span>
+          </a>
+          <div id="collapseEvaluate" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header"
+                >Biomacromolecule <br />
+                Classification:</h6
+              >
+              <a class="collapse-item" href="#">DNA Markers</a>
+              <a class="collapse-item" href="#">RNA Markers</a>
+              <a class="collapse-item" href="#">Protein Markers</a>
+              <a class="collapse-item" href="#">Metabolite Markers</a>
+            </div>
+          </div>
+        </li>
+
+        <!-- Nav Item - Search Collapse Menu -->
+        <li class="nav-item">
+          <a
+            class="nav-link collapsed"
+            href="#"
+            data-toggle="collapse"
+            data-target="#collapseSearch"
+            aria-expanded="true"
+            aria-controls="collapseTwo"
+          >
+            <i class="fas fa-fw fa-search-location"></i>
+            <span>Search</span>
+          </a>
+          <div id="collapseSearch" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header"
+                >Biomacromolecule <br />
+                Classification:</h6
+              >
+              <a class="collapse-item" href="#">DNA Markers</a>
+              <a class="collapse-item" href="#">RNA Markers</a>
+              <a class="collapse-item" href="#">Protein Markers</a>
+              <a class="collapse-item" href="#">Metabolite Markers</a>
+            </div>
+          </div>
+        </li>
+
+        <!-- Nav Item - Utilities Collapse Menu -->
+        <li class="nav-item">
+          <a
+            class="nav-link collapsed"
+            href="#"
+            data-toggle="collapse"
+            data-target="#collapseBrowse"
+            aria-expanded="true"
+            aria-controls="collapseUtilities"
+          >
+            <i class="fas fa-fw fa-table"></i>
+            <span>Browse</span>
+          </a>
+          <div id="collapseBrowse" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header"
+                >Biomacromolecule <br />
+                Classification:</h6
+              >
+              <a class="collapse-item" href="#">DNA Markers</a>
+              <a class="collapse-item" href="#">RNA Markers</a>
+              <a class="collapse-item" href="#">Protein Markers</a>
+              <a class="collapse-item" href="#">Metabolite Markers</a>
+            </div>
+          </div>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider" />
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+          About exMarker
+        </div>
+
+        <!-- Nav Item - Statistics -->
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Statistics</span></a
+          >
+        </li>
+
+        <!-- Nav Item - Soutce -->
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fas fa-fw fa-share-square"></i>
+            <span>Source</span></a
+          >
+        </li>
+
+        <!-- Nav Item - Help -->
+        <li class="nav-item">
+          <a class="nav-link" href="./help.html">
+            <i class="fas fa-fw fa-hand-paper"></i>
+            <span>Help</span></a
+          >
+        </li>
+
+        <!-- Nav Item - Contact -->
+        <li class="nav-item">
+          <a class="nav-link" href="./contact.html">
+            <i class="fas fa-fw fa-address-card"></i>
+            <span>Contact</span></a
+          >
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block" />
+
+        <!-- Sidebar Toggler (Sidebar) -->
+        <div class="text-center d-none d-md-inline">
+          <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        </div>
+      </ul>
+      <!-- End of Sidebar -->
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          <!-- Topbar -->
+          <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+            <!-- Sidebar Toggle (Topbar) -->
+            <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+              <i class="fa fa-bars"></i>
+            </button>
+
+            <!-- Topbar Search -->
+            <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control bg-light border-0 small"
+                  placeholder="Search for..."
+                  aria-label="Search"
+                  aria-describedby="basic-addon2"
+                />
+                <div class="input-group-append">
+                  <button class="btn btn-primary" type="button">
+                    <i class="fas fa-search fa-sm"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+
+            <div class="img-thumbnail float-right">
+              <a
+                target="_blank"
+                href="https://www.google.com/webmasters/tools/mobile-friendly/?url=exmarker.zhangshang.online"
+                ><img class="float-right img-responsive" height="30rem" src="./exmarker/img/mobile_friendly4.svg"
+              /></a>
+            </div>
+          </nav>
+          <!-- End of Topbar -->
+
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+            <!-- Page Heading -->
+            <h1 class="h3 mb-4 text-gray-900 alert-link text-capitalize">Help</h1>
+            <div class="text-capitalize px-3">
+              <!-- <div> <h4 class="font-weight-bold" style="margin-bottom: 0px;">Table of Contents</h4> </div> -->
+              <!--panel-heading-->
+              <ul>
+                <li>
+                  <h6><a class="font-weight-bold" href="#overview">Overview of ExMarker</a></h6></li
+                >
+                <li
+                  ><h6><a class="font-weight-bold" href="#search_module">Search module</a></h6></li
+                >
+                <li
+                  ><h6><a class="font-weight-bold" href="#browse_module">Browse module</a></h6></li
+                >
+                <li
+                  ><h6><a class="font-weight-bold" href="#source_module">Source module</a></h6></li
+                >
+                <li
+                  ><h6><a class="font-weight-bold" href="#input_description">Input description</a></h6></li
+                >
+                <li
+                  ><h6><a class="font-weight-bold" href="#browser_compatibility">Web browser compatibility</a></h6></li
+                >
+                <li
+                  ><h6><a class="font-weight-bold" href="#acknowledgements">Acknowledgements</a></h6></li
+                >
+              </ul>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-12">
+                <!-- Overview of exMarker Cards -->
+                <div class="card shadow mb-4">
+                  <div class="card-header py-3">
+                    <h6 id="overview" class="m-0 font-weight-bold text-primary text-capitalize"
+                      >Overview of exMarker</h6
+                    >
+                  </div>
+                  <div class="card-body text-justify">
+                    <p
+                      ><b>evaluate exRNA biomarker for liquid biopsy (exMarker)</b> is a comprehensive open resource for
+                      exploring non-invasive biomarkers for <b>31 types of human diseases</b>, including cancers,
+                      precancerous lesions, cardiovascular diseases, and so on. Currently, exMarker contains a large
+                      number of biomarkers for liquid biopsy. We manually curate <b>72 FDA-approved biomarkers</b> form
+                      FDA official website,
+                      <b>1232 DNA, RNA, protein, and metabolite preclinical biomarkers from 745 papers</b>.
+                      Additionally, a large patient cohort of <b>7 specimen types, 4023 RNA-seq samples</b> were
+                      collected in exMarker, and approximately <b>45,000 RNA biomarker candidates</b> were identified
+                      from these public RNA-seq data in the liquid biopsy field. All these markers are organized by
+                      <b>four evidence levels</b> to help users quickly evaluate the potential of a specific biomarker
+                      across different disease types.</p
+                    >
+                    <p
+                      >exMarker provides a user-friendly and intuitive web interface and three function modules
+                      including <b>Search, Browse, and Source</b> to aid users in investigating liquid biopsy-based
+                      biomarkers. <b>Browse module</b>, which allows users to quickly browse biomarkers across different
+                      molecular types, disease types, and evidence levels. <b>Search module</b>, which returns a wealth
+                      of information for the queried biomarker, including basic information, evidence level, expression
+                      information (expression abundance and differential expression), diagnostic performance, biomarker
+                      reports, and FDA approval information. Expression information and diagnostic performance are only
+                      provided for RNA markers. <b>Source module</b>, which allows users to get to know the key
+                      characteristics of each dataset collected in exMarker. Users can also download RNA expression
+                      matrices and differential expression analysis results for the datasets of interest.</p
+                    >
+                    <p
+                      >We anticipate that exMarker will serve as a valuable and powerful platform for developing
+                      non-invasive biomarkers across various human diseases.</p
+                    >
+                  </div>
+                </div>
+
+                <!-- Search module Cards -->
+                <div class="card shadow mb-4">
+                  <div class="card-header py-3">
+                    <h6 id="search_module" class="m-0 font-weight-bold text-primary text-capitalize">Search module</h6>
+                  </div>
+                  <div class="card-body text-justify">
+                    <p
+                      ><b
+                        >Several options, including ‘RNA markers’, ‘DNA markers’, ‘Protein markers’, ‘Metabolite
+                        markers’ are available in the ‘Search’ module. Here, we illustrate an example to show how to
+                        search for RNA markers in exMarker, other types of markers can be searched in a similar way.</b
+                      ><br /><br
+                    /></p>
+                    <b>1.Input</b>
+                    <br />
+                    <br />
+                    <b>Step 1: </b>
+                    <p
+                      >Click the ‘RNA markers’ tab in the top button group. Four tabs represent different types of
+                      biomarkers, and users can click one type of interest.</p
+                    >
+                    <b>Step 2: </b>
+                    <p
+                      >Select an RNA type you are interested in, for example, “mRNA”. Once you choose the RNA type, the
+                      prompt box above it will show the corresponding search tips. Please notice that the default
+                      setting is ‘miRNA’.</p
+                    >
+                    <b>Step 3: </b>
+                    <p
+                      >Type the marker name of your interest according to the tips in the prompt box. For example, you
+                      can type ‘KRT19’. Available items will be automatically displayed to assist in your input.
+                    </p>
+                    <b>Step 4: </b>
+                    <p>Click the ‘Search an RNA biomarker’ button, then search results will be displayed.</p>
+
+                    <b>2.Results:</b>
+                    <br />
+                    <br />
+                    <b>2.1 Basic information. </b>
+                    <p
+                      >Summary of KRT19 gene information, including the gene name, gene id, gene type, and gene length.
+                      We provide several external links (e.g. NCBI, Ensembl, GeneCards, etc.) for detailed annotation
+                      about the queried gene.</p
+                    >
+
+                    <b>2.2 Evidence level. </b>
+                    <p
+                      >Here, exMarker provides an interactive table to show the evidence level of the queried gene in
+                      different diseases which are available in our database. Evidence level is very important for users
+                      to evaluate the biomarker potential.</p
+                    >
+
+                    <b>2.3 Expression information. </b>
+                    <p
+                      >This section provides expression abundance and differential expression information on the queried
+                      gene. It includes:</p
+                    >
+                    <p>1) Disease: disease type </p><p>2) Datasets: dataset accession id or data source name </p
+                    ><p>3) RNA source: specimen type (e.g. Plasma Cell-free) </p
+                    ><p>4) Comparison: negative class vs. positive class (e.g. Normal vs. Colorectal cancer) </p
+                    ><p>5) Sample size: the number of clinical samples (negative class vs. positive class) </p
+                    ><p
+                      >6) Detection frequency: the percentage of samples with normalized expression value (RPM/TPM) > 0 </p
+                    ><p
+                      >7) Expression N: the mean of each samples’ normalized expression value (RPM/TPM) of the negative
+                      class </p
+                    ><p
+                      >8) Expression P: the mean of each samples’ normalized expression value (RPM/TPM) of the positive
+                      class </p
+                    ><p
+                      >9) Bar chart: click this button, then a bar chart showing the normalized expression value
+                      (RPM/TPM) of each sample will be displayed. </p
+                    ><p>10) logFC：the log2(fold change) of positive class vs. negative class </p><p>11) P-Value </p
+                    ><p>12) FDR: false discovery rate </p
+                    ><p
+                      >13) Box plot: click this button, then a box plot showing the expression level (RPM/TPM) of
+                      samples for the two classes (negative class vs. positive class) will be displayed.</p
+                    >
+
+                    <b>2.4 Diagnostic performance. </b>
+                    <p
+                      >This section provides diagnostic performance information to help users get to know the potential
+                      of the specific biomarker. </p
+                    ><p>1) Disease: disease type </p><p>2) Datasets: dataset accession id or data source name </p
+                    ><p>3) RNA source: specimen type (e.g. Plasma Cell-free) </p
+                    ><p>4) Comparison: negative class vs. positive class (e.g. Normal vs. Colorectal cancer) </p
+                    ><p>5) Sample size: the number of clinical samples (negative class vs. positive class) </p
+                    ><p>6) AUC: area under the ROC curve </p><p>7) Precision: positive predictive value </p
+                    ><p>8) Specificity: true negative rate </p><p>9) Sensitivity: true positive rate </p
+                    ><p>10) ROC curve: receiver operating characteristic curve</p>
+
+                    <b>2.5 Biomarker reports. </b>
+                    <p
+                      >This section lists core information manually curated from literatures related to this specific
+                      biomarker across various diseases. </p
+                    ><p>1) Reference: the research article and the link to PubMed </p
+                    ><p>2) HGNC_Symbol: the approved symbol of the biomarker provided by HGNC </p
+                    ><p>3) Biomarker_Name: the biomarker name reported by the original research article </p
+                    ><p>4) Specimen: specimen type </p
+                    ><p
+                      >5) Expression_Trend: expression change trend of the biomarker for positive class vs. negative
+                      class (cancer vs. normal, etc.) </p
+                    ><p>6) Clinical_Value: potential clinical value of the biomarker(diagnosis/prognosis) </p
+                    ><p
+                      >7) Discrimination/Prediction: the cohorts that can be distinguished by the diagnostic biomarker
+                      or the endpoint of the prognostic biomarker </p
+                    ><p
+                      >8) Early_Stage: whether the biomarker can be used for early diagnosis (Y for yes, N for no, and
+                      Not involved for prognostic biomarker or not available.) </p
+                    ><p>9) Etiology: pathogen of the specific disease, such as HBV-related HCC </p
+                    ><p>10) Cellular_Effect: the cellular function of the biomarker </p
+                    ><p>11) Sample_Size: the number of clinical samples of each cohort </p
+                    ><p>12) Method: detection methods for the biomarker </p
+                    ><p>13) Single/Panel: the type of biomarker model, single or panel </p
+                    ><p>14) Journal: journal that published the biomarker research </p
+                    ><p>15) Publish_Year: particular year of the biomarker research published </p
+                    ><p>16) Region: country or population of the patient cohort </p
+                    ><p>17) Disease_Type: disease type that the biomarker can be used for diagnosis or prognosis </p
+                    ><p>18) Usage: the author’s summary description of the biomarker</p>
+
+                    <b>2.6 FDA approval. </b>
+                    <p
+                      >Here, we display FDA approval information manually curated from FDA official website related to
+                      this specific biomarker across various diseases. </p
+                    ><p>1) HGNC_Symbol: the approved symbol of the biomarker provided by HGNC. </p
+                    ><p>2) Official_Full_Name: the official full name of the biomarker provided by HGNC. </p
+                    ><p>3) Marker_Name: common used name of the biomarker </p
+                    ><p>4) Marker_Type: molecular type of the biomarker </p
+                    ><p>5) Methodology: detection methods for the biomarker </p><p>6) Specimen: specimen type </p
+                    ><p>7) Cancer_Type: cancer type that the biomarker can be used for diagnosis or prognosis. </p
+                    ><p>8) Biomarker_usage: clinical usage of the biomarker </p
+                    ><p>9) Submission_ID: submission id for FDA </p
+                    ><p>10) Class: the classification of the medical device by FDA </p
+                    ><p>11) Year_First_Approved: particular year of the biomarker first approved or cleared by FDA </p
+                    ><p
+                      >12) Evidence_Level: one of the four evidence levels is assigned to the biomarker based on our
+                      classification system in exMarker.</p
+                    >
+                  </div>
+                </div>
+
+                <!-- Browse module Cards -->
+                <div class="card shadow mb-4">
+                  <div class="card-header py-3">
+                    <h6 id="browse_module" class="m-0 font-weight-bold text-primary text-capitalize">Browse module</h6>
+                  </div>
+                  <div class="card-body text-justify">
+                    <p
+                      >The data source is a matter of great account for our database. To this end, we provide an
+                      interactive table to summarize the sample information of the high-throughput sequencing data, and
+                      two bar charts to show detailed information. Key characteristics of each dataset are listed in an
+                      interactive table to help users get to know the data collected in exMarker. Users can click
+                      ‘Accession_ID’ to view the raw data page in GEO, SRA, BioProject, etc. Furthermore, users can also
+                      click ‘PMID’ to view the original article in PubMed. exMarker also provides expression matrices
+                      and differential expression analysis results from standard and consistent RNA-seq data processing
+                      pipelines. Read counts for each gene were normalized to RPM values (Reads Per Million) for small
+                      RNA and TPM values (Transcript Per Million) for long RNA. Differential expression results were
+                      categorized by available comparisons, such as normal versus cancer, precancerous lesions versus
+                      cancer, and so on. The expression matrices and differential expression analysis results of your
+                      interest can be easily downloaded by click the ‘Download’ button.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Source module Cards -->
+                <div class="card shadow mb-4">
+                  <div class="card-header py-3">
+                    <h6 id="source_module" class="m-0 font-weight-bold text-primary text-capitalize">Source module</h6>
+                  </div>
+                  <div class="card-body text-justify">
+                    <p
+                      ><b
+                        >exMarker contains RNA, DNA, protein, and metabolite biomarkers across various diseases. And the
+                        corresponding tabs are available in the ‘Browse’ module. Here, we take RNA as an example to show
+                        how to browse biomarkers in exMarker, other types of makers can be browsed in a similar way.</b
+                      ></p
+                    >
+
+                    <b>1.Filter</b>
+                    <br />
+                    <br />
+                    <b>Step 1: </b>
+                    <p
+                      >Click the ‘RNA markers’ tab in the top button group. Four tabs represent different types of
+                      biomarkers, and users can click one type of interest.</p
+                    >
+                    <b>Step 2: </b>
+                    <p>Select an RNA type of your interest in the corresponding filter box (e.g. mRNA). </p>
+                    <b>Step 3: </b>
+                    <p
+                      >Or select a disease type of your interest in the corresponding filter box (e.g. Liver cancer).</p
+                    >
+                    <b>Step 4: </b>
+                    <p>Or select an evidence level of your interest in the corresponding filter box (e.g. Level 2).</p>
+
+                    <b>2.Results:</b>
+                    <br />
+                    <br />
+                    <p
+                      >Users can browse biomarkers of interest by biomarker name, RNA type, disease type, and evidence
+                      level. Evidence level is assigned to each biomarker in exMarker to help users quickly evaluate the
+                      biomarker potential across different disease types. By clicking the biomarker name, search module
+                      will be displayed for searching detailed information about this marker.</p
+                    >
+                  </div>
+                </div>
+
+                <!-- Input description Cards -->
+                <div class="card shadow mb-4">
+                  <div class="card-header py-3">
+                    <h6 id="input_description" class="m-0 font-weight-bold text-primary text-capitalize"
+                      >Input description</h6
+                    >
+                  </div>
+                  <div class="card-body text-justify">
+                    <p><b>For RNA:</b></p>
+                    <p
+                      >Search mRNA, lncRNA, snRNA, snoRNA, and srpRNA by entering a gene symbol [e.g. B2M, HOTAIR,
+                      RN7SK, SNORA55, RN7SL1].</p
+                    >
+                    <p>Search miRNA by entering a miRBase ID [e.g. hsa-miR-21-5p, hsa-miR-4482-3p，hsa-miR-4473].</p>
+                    <p
+                      >Search piRNA by entering a piRNABank accession number [e.g. hsa_piR_000794, hsa_piR_000823,
+                      hsa_piR_002286].</p
+                    >
+                    <p>Search circRNA by enitering a circBase identifier [e.g. hsa_circ_0000119, hsa_circ_0051802].</p>
+                    <br />
+                    <p><b>For DNA:</b></p>
+                    <p>Search a DNA biomarker by entering a gene symbol [e.g. BRCA1, TP53, KRAS, etc.].</p>
+                    <br />
+                    <p><b>For protein:</b></p>
+                    <p>Search a protein biomarker by entering a protein name [e.g. CA19-9, PSA, CEACAM5, etc.].</p>
+                    <br />
+                    <p><b>For metabolite:</b></p>
+                    <p
+                      >Search a metabolite biomarker by entering a metabolite name [e.g. alanine, valine, tryptophan,
+                      etc.].</p
+                    >
+                  </div>
+                </div>
+
+                <!-- Web browser compatibility Cards -->
+                <div class="card shadow mb-4">
+                  <div class="card-header py-3">
+                    <h6 id="browser_compatibility" class="m-0 font-weight-bold text-primary text-capitalize"
+                      >Web browser compatibility</h6
+                    >
+                  </div>
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table
+                        class="table table-bordered small"
+                        id="web-browser-compatibility"
+                        width="100%"
+                        cellspacing="0"
+                      >
+                        <thead>
+                          <tr>
+                            <td></td>
+                            <td>Chrome</td>
+                            <td>Firefox</td>
+                            <td>Safari</td>
+                            <td>Microsoft Edge</td>
+                            <td>Opera</td>
+                            <td>Android Browser &amp; WebView</td>
+                            <td>Internet Explorer</td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Android</td>
+                            <td>Supported</td>
+                            <td>Supported</td>
+                            <td>N/A</td>
+                            <td>Supported</td>
+                            <td>Supported</td>
+                            <td>Android v5.0+ supported</td>
+                            <td>N/A</td>
+                          </tr>
+                          <tr>
+                            <td>iOS</td>
+                            <td>Supported</td>
+                            <td>Supported</td>
+                            <td>Supported</td>
+                            <td>Supported</td>
+                            <td>Supported</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                          </tr>
+                          <tr>
+                            <td>Windows 10 Mobile</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>Supported</td>
+                            <td>Supported</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                          </tr>
+                          <tr>
+                            <td>Mac</td>
+                            <td>Supported</td>
+                            <td>Supported</td>
+                            <td>Supported</td>
+                            <td>Supported</td>
+                            <td>Supported</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                          </tr>
+                          <tr>
+                            <td>Windows</td>
+                            <td>Supported</td>
+                            <td>Supported</td>
+                            <td>Not supported</td>
+                            <td>Supported</td>
+                            <td>Supported</td>
+                            <td>N/A</td>
+                            <td>Supported, IE10+</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Acknowledgements Cards -->
+                <div class="card shadow mb-4">
+                  <div class="card-header py-3">
+                    <h6 id="acknowledgements" class="m-0 font-weight-bold text-primary text-capitalize"
+                      >Acknowledgements</h6
+                    >
+                  </div>
+                  <div class="card-body text-justify">
+                    <p
+                      >We adapted the Javascript library
+                      <a href="https://plot.ly/javascript/" target="_blank">plotly.js</a>,
+                      <a href="http://jquery.com/" target="_blank">jQuery</a>,
+                      <a href="https://datatables.net/" target="_blank">DataTables</a>, as well as the HTML framework
+                      <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>.</p
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span
+                >Copyright &copy;
+                <a target="_blank" href="http://bioinformatics.life.tsinghua.edu.cn">Lu Lab @ Tsinghua University</a>
+                2020 All rights reserved</span
+              >
+            </div>
+          </div>
+        </footer>
+        <!-- End of Footer -->
+      </div>
+      <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Call the dataTables jQuery plugin -->
+    <script>
+      $(document).ready(function () {
+        $('#web-browser-compatibility').DataTable({
+          bInfo: false,
+          bFilter: false,
+          bJQueryUI: true,
+          bAutoWidth: true,
+          bLengthChange: false,
+          paging: false,
+          stripeClasses: ['strip1', 'strip2'],
+        });
+      });
+    </script>
+  </body>
+</html>
