@@ -157,15 +157,15 @@
 
         <!-- Nav Item - Statistics -->
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="./statistics.html">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Statistics</span></a
           >
         </li>
 
-        <!-- Nav Item - Soutce -->
+        <!-- Nav Item - Source -->
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="./source.html">
             <i class="fas fa-fw fa-share-square"></i>
             <span>Source</span></a
           >
@@ -271,11 +271,12 @@
                     >
                   </div>
                   <div class="card-body">
-                    <div class="chart-area">
+                    <div class="chart-area" style="height: 35rem;">
                       <canvas id="biomarkers_across_evidence_levels"></canvas>
                     </div>
                     <hr />
-                    Styling for the area chart can be found in the <code>/js/demo/chart-area-demo.js</code> file.
+                    Click <a href="./index.html#level__system" target="_blank">here</a> for more details about the level
+                    classification system.
                   </div>
                 </div>
 
@@ -286,10 +287,10 @@
                       >Summary of the biomarkers curated from literature in exMarker</h6
                     >
                   </div>
-                  <div class="card-body text-justify">
+                  <div class="card-body">
                     <table
                       id="biomarkers_curated"
-                      class="table table-bordered table-striped table-hover table-light table-responsive-sm small"
+                      class="table table-bordered table-striped table-hover table-light table-responsive-sm small text-center"
                       width="100%"
                       cellspacing="0"
                     >
@@ -411,7 +412,7 @@
                       </tbody>
                     </table>
                     <hr />
-                    <div style="font-size: 0.9rem;">Biomarkers curated from 775 papers. </div>
+                    <div>Biomarkers curated from 775 papers. </div>
                   </div>
                 </div>
               </div>
@@ -462,9 +463,7 @@
     <script src="vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="./exmarker/js/biomarkers_across_evidence_levels.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
-    <script src="js/demo/chart-bar-demo.js"></script>
+    <script src="./exmarker/js/chart_biomarkers_across_evidence_levels.js"></script>
 
     <!-- Call the dataTables jQuery plugin -->
     <script>

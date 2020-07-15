@@ -1,0 +1,107 @@
+/* exMarker search section CSS */
+.exmarker_search_box_container {
+  display: flex;
+  height: inherit;
+}
+
+.exmarker_search_box {
+  width: 80%;
+  height: 100%;
+  margin: auto;
+}
+@media (max-width: 768px) {
+  .exmarker_search_box {
+    width: 100%;
+  }
+}
+
+.exmarker_search_tips {
+  text-align: left;
+  padding: 1rem 1.5rem;
+  font-size: large;
+  color: #ffffff;
+  border-radius: 4px;
+  width: 80%;
+  height: 18%;
+  margin: 2rem auto 1rem;
+  background: #4e73df;
+}
+@media (max-width: 768px) {
+  .exmarker_search_tips {
+    padding: 0.5rem 1rem;
+    font-size: small;
+    height: 15%;
+  }
+}
+
+.exmarker_search_tips p {
+  margin: 0;
+}
+
+.exmarker_underline_italic {
+  text-decoration: underline;
+  font-style: italic;
+}
+
+.exmarker_search_item {
+  margin: 1rem auto 0.5rem;
+  width: 55%;
+  height: 4rem;
+  justify-content: center;
+  align-items: center;
+  display: flex; /*设为 Flex 布局以后，子元素的float、clear和vertical-align属性将失效*/
+  display: -webkit-flex; /* Safari */
+}
+@media (max-width: 768px) {
+  .exmarker_search_item {
+    width: 75%;
+  }
+  .exmarker_search_item h5 {
+    font-size: small;
+  }
+}
+
+.exmarker_search_div_for_form {
+  margin: 0 0 0 auto;
+  width: 60%;
+  height: 2rem;
+}
+
+.exmarker_search_form_input {
+  width: 80%;
+  height: 2rem;
+  font-size: 1rem;
+  margin-top: 0%;
+  float: inherit;
+  text-align: left;
+  border-radius: 0.4rem;
+  line-height: 2rem;
+}
+@media (max-width: 768px) {
+  .exmarker_search_form_input {
+    width: 100%;
+  }
+}
+
+.sample_stat_img {
+  padding: 2rem;
+  padding-top: 4rem;
+  width: 100%;
+  margin: auto;
+}
+
+/* exMarker results section */
+.exmarker_results_container {
+  border: 1px solid #d5d5d5;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.exmarker_biomarkerDiv_for_table {
+  margin: 5px;
+  cellpadding: 10px;
+  padding: 5px;
+  border: 1px solid #337ab7;
+  table-layout: fixed;
+}

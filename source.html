@@ -157,15 +157,15 @@
 
         <!-- Nav Item - Statistics -->
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="./statistics.html">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Statistics</span></a
           >
         </li>
 
-        <!-- Nav Item - Soutce -->
+        <!-- Nav Item - Source -->
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="./source.html">
             <i class="fas fa-fw fa-share-square"></i>
             <span>Source</span></a
           >
@@ -270,11 +270,19 @@
                     >
                   </div>
                   <div class="card-body">
-                    <div class="chart-area">
-                      <canvas id="biomarkers_across_evidence_levels"></canvas>
+                    <div class="row">
+                      <div class="chart-area col-lg-6">
+                        <canvas id="chart_rna_seq_source"></canvas>
+                      </div>
+                      <div class="chart-area col-lg-6">
+                        <canvas id="chart_rna_seq_type"></canvas>
+                      </div>
                     </div>
                     <hr />
-                    Styling for the area chart can be found in the <code>/js/demo/chart-area-demo.js</code> file.
+                    <div style="font-size: 0.9rem;">
+                      TEP, tumor-educated platelets; CTC, circulating tumor cells; PBMC, peripheral blood mononuclear
+                      cells; PB-total, Peripheral blood total RNA; EV, extracellular vesicles.
+                    </div>
                   </div>
                 </div>
 
@@ -285,10 +293,10 @@
                       >Summary of the RNA-seq samples collected in exMarker</h6
                     >
                   </div>
-                  <div class="card-body text-justify">
+                  <div class="card-body">
                     <table
                       id="rna-seq_samples_collected_in_exMarker"
-                      class="table table-bordered table-striped table-hover table-light table-responsive-sm small"
+                      class="table table-bordered table-striped table-hover table-light table-responsive-sm small text-center"
                       cellspacing="0"
                     >
                       <thead class="thead-dark">
@@ -562,10 +570,10 @@
                   <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary text-capitalize">RNA Data Source</h6>
                   </div>
-                  <div class="card-body text-justify">
+                  <div class="card-body">
                     <table
                       id="rna_data_source"
-                      class="table table-bordered table-striped table-hover table-light table-responsive-sm table-responsive-md table-responsive-xl table-responsive-lg small"
+                      class="table table-bordered table-striped table-hover table-light table-responsive-sm small text-center"
                       width="100%"
                       cellspacing="0"
                     >
@@ -1973,9 +1981,8 @@
     <script src="vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="./exmarker/js/biomarkers_across_evidence_levels.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
-    <script src="js/demo/chart-bar-demo.js"></script>
+    <script src="./exmarker/js/chart_rna_seq_source.js"></script>
+    <script src="./exmarker/js/chart_rna_seq_type.js"></script>
 
     <!-- Call the dataTables jQuery plugin -->
     <script>
