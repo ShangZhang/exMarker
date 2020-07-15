@@ -1,6 +1,6 @@
 <?php
 ini_set('memory_limit', '1024M');
-$db = new PDO('mysql:host=localhost;dbname=bdlb1_1', 'root', 'c90d204689ee9dcf');
+$db = new PDO('mysql:host=localhost;dbname=bdlb1_1', 'root', '');
 $table='BDLB_RNA_markers';
 $table2='FDA_approved_RNA_markers';
 

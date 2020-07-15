@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="exMarker-evaluate exRNA biomarker for liquid biopsy" />
+    <meta name="author" content="shang_zhang@foxmail.com" />
+
+    <title class="page-header">exMarker-evaluate exRNA biomarker for liquid biopsy</title>
+    <link rel="icon" href="./exmarker/img/exmarker_icon_red.svg" sizes="32x32" />
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this page -->
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
+    <!-- ExMarker styles -->
+    <link rel="stylesheet" href="./exmarker/css/exmarker.css" />
+  </head>
+
+  <body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <!-- Sidebar - Brand -->
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+          <div class="sidebar-brand-icon rotate-n-15">
+            <img class="img-responsive" src="./exmarker/img/exmarker_icon_white.svg" width="42" height="42" alt="exMarker icon" />
+          </div>
+          <div class="sidebar-brand-text mx-3">exMarker</div>
+        </a>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0" />
+
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">
+            <!-- <i class="fas fa-fw fa-tachometer-alt"></i> -->
+            <i class="fas fa-home"></i>
+            <span>Home</span></a
+          >
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider" />
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+          Functions
+        </div>
+
+        <!-- Nav Item - Evaluate Collapse Menu -->
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEvaluate" aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cubes"></i>
+            <span>Evaluate</span>
+          </a>
+          <div id="collapseEvaluate" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header"
+                >Biomacromolecule <br />
+                Classification:</h6
+              >
+              <a class="collapse-item" href="#">DNA Markers</a>
+              <a class="collapse-item" href="#">RNA Markers</a>
+              <a class="collapse-item" href="#">Protein Markers</a>
+              <a class="collapse-item" href="#">Metabolite Markers</a>
+            </div>
+          </div>
+        </li>
+
+        <!-- Nav Item - Search Collapse Menu -->
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSearch" aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-search-location"></i>
+            <span>Search</span>
+          </a>
+          <div id="collapseSearch" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header"
+                >Biomacromolecule <br />
+                Classification:</h6
+              >
+              <a class="collapse-item" href="#">DNA Markers</a>
+              <a class="collapse-item" href="#">RNA Markers</a>
+              <a class="collapse-item" href="#">Protein Markers</a>
+              <a class="collapse-item" href="#">Metabolite Markers</a>
+            </div>
+          </div>
+        </li>
+
+        <!-- Nav Item - Utilities Collapse Menu -->
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBrowse" aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Browse</span>
+          </a>
+          <div id="collapseBrowse" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header"
+                >Biomacromolecule <br />
+                Classification:</h6
+              >
+              <a class="collapse-item" href="#">DNA Markers</a>
+              <a class="collapse-item" href="#">RNA Markers</a>
+              <a class="collapse-item" href="#">Protein Markers</a>
+              <a class="collapse-item" href="#">Metabolite Markers</a>
+            </div>
+          </div>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider" />
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+          About exMarker
+        </div>
+
+        <!-- Nav Item - Statistics -->
+        <li class="nav-item">
+          <a class="nav-link" href="./statistics.html">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Statistics</span></a
+          >
+        </li>
+
+        <!-- Nav Item - Source -->
+        <li class="nav-item">
+          <a class="nav-link" href="./source.html">
+            <i class="fas fa-fw fa-share-square"></i>
+            <span>Source</span></a
+          >
+        </li>
+
+        <!-- Nav Item - Help -->
+        <li class="nav-item">
+          <a class="nav-link" href="./help.html">
+            <i class="fas fa-fw fa-hand-paper"></i>
+            <span>Help</span></a
+          >
+        </li>
+
+        <!-- Nav Item - Contact -->
+        <li class="nav-item">
+          <a class="nav-link" href="./contact.html">
+            <i class="fas fa-fw fa-address-card"></i>
+            <span>Contact</span></a
+          >
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block" />
+
+        <!-- Sidebar Toggler (Sidebar) -->
+        <div class="text-center d-none d-md-inline">
+          <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        </div>
+      </ul>
+      <!-- End of Sidebar -->
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          <!-- Topbar -->
+          <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+            <!-- Sidebar Toggle (Topbar) -->
+            <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+              <i class="fa fa-bars"></i>
+            </button>
+
+            <!-- Topbar Search -->
+            <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+              <div class="input-group">
+                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
+                <div class="input-group-append">
+                  <button class="btn btn-primary" type="button">
+                    <i class="fas fa-search fa-sm"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+
+            <div class="img-thumbnail float-right">
+              <a target="_blank" href="https://www.google.com/webmasters/tools/mobile-friendly/?url=exmarker.zhangshang.online"><img class="float-right img-responsive" height="30rem" src="./exmarker/img/mobile_friendly4.svg" /></a>
+            </div>
+          </nav>
+          <!-- End of Topbar -->
+
+          <!-- Begin Page Content -->
+          <div class="container-fluid" style="height: 90%;">
+            <!-- Page Heading -->
+            <h1 class="h3 mb-4 text-gray-900 alert-link text-capitalize">Search RNA Markers</h1>
+
+            <!-- exMarker search section  style="display: none;"-->
+            <div id="box_input" class="exmarker_search_box_container" id="select_input_zs">
+              <div class="row text-center exmarker_search_box">
+                <div class="exmarker_search_tips">
+                  <b class="font-italic dt">Tips: </b><i class="fa fa-hand-point-right"></i>
+                  <p id="change_by_RNAtype"> Search a <span class="exmarker_underline_italic">miRNA biomarker</span> by entering miRBase ID [e.g. hsa-miR-21-5p, hsa-miR-122-5p].</p>
+                </div>
+
+                <div class="exmarker_search_item text-center">
+                  <h5 class="select_font">RNA type :</h5>
+                  <div class="exmarker_search_div_for_form">
+                    <select id="select_specimen" onchange="select_RNAtype()" class="exmarker_search_form_input">
+                      <option value="miRNA">miRNA</option>
+                      <option value="mRNA">mRNA</option>
+                      <option value="snRNA">snRNA</option>
+                      <!-- <option value="circRNA">circRNA</option> -->
+                      <option value="lncRNA">lncRNA</option>
+                      <!-- <option value="piRNA">piRNA</option> -->
+                      <!-- <option value="RNA fusion">RNA fusion</option> -->
+                      <option value="pseudo">pseudo</option>
+                      <option value="srpRNA">srpRNA</option>
+                      <option value="snoRNA">snoRNA</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="exmarker_search_item text-center">
+                  <h5>
+                    Marker name
+                    <a href="./a4.EBD_help.html#how_to_search" target="_blank" title="input description"><i class="fa fa-question-circle"></i></a> :</h5
+                  >
+                  <div class="exmarker_search_div_for_form">
+                    <form>
+                      <input type="text" id="select_gene_name" autocomplete="off" spellcheck="false" class="exmarker_search_form_input" />
+                    </form>
+                  </div>
+                </div>
+
+                <div style="width: 50%; margin: 0 auto;">
+                  <div class="col-md-12 col-xs-12">
+                    <button class="button1" onclick="search()">Search an RNA biomarker</button>
+                  </div>
+                </div>
+
+                <div class="col-md-12 col-xs-12">
+                  <img class="img-responsive sample_stat_img" src="./exmarker/img/search_rna_markers_summary.png" alt="EBA summary img" />
+                </div>
+              </div>
+            </div>
+            <!-- end of exMarker search section -->
+
+            <!-- exMarker loader section -->
+            <div class="text-center" id="loader_box" style="display: none;">
+              <i class="fa fa-cog fa-spin fa-5x fa-fw"></i>
+              <span class="sr-only">Loading...</span>
+            </div>
+            <!-- end of exMarker search section -->
+
+            <!---exMarker result section -->
+            <div id="box_result" class="exmarker_results_container" style="display: none;">
+              <div class="card">
+                <div class="card-header">
+                  <h4><a class="card-link" data-toggle="collapse" href="#collapse-0">Basic information</a></h4>
+                </div>
+                <div id="collapse-0" class="collapse show" data-parent="#box_result">
+                  <div class="card-body">
+                    <div id="rna_information"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header">
+                  <h4><a class="card-link" data-toggle="collapse" href="#collapse-1">Lookup this gene in</a></h4>
+                </div>
+                <div id="collapse-1" class="collapse show" data-parent="#box_result">
+                  <div class="card-body row text-center">
+                    <div id="miRBase_logo_div" class="col-md-2 col-xs-2 exmarker_rna_logo_card"><a id="miRBase_logo" target="_blank">miRBase</a></div>
+                    <div class="col-sm-4 col-md-2 col-xs-2 exmarker_rna_logo_card"><a id="NCBI_logo" target="_blank">NCBI</a></div>
+                    <div class="col-sm-4 col-md-2 col-xs-2 exmarker_rna_logo_card"><a id="ensembl_logo" target="_blank">Ensembl</a></div>
+                    <div class="col-sm-4 col-md-2 col-xs-2 exmarker_rna_logo_card"><a id="geneCards_logo" target="_blank">GeneCards</a></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header">
+                  <h4><a class="card-link" data-toggle="collapse" href="#collapse-6">Evidence level</a></h4>
+                </div>
+                <div id="collapse-6" class="collapse show" data-parent="#box_result">
+                  <div class="card-body">
+                    <div id="rna_evidence_level" style="overflow: auto;"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header">
+                  <h4><a class="card-link" data-toggle="collapse" href="#collapse-2">Expression information</a></h4>
+                </div>
+                <div id="collapse-2" class="collapse show" data-parent="#box_result">
+                  <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#menu0">Expression abundance</a></li>
+                    <li><a data-toggle="tab" href="#menu1">Differential expression</a></li>
+                  </ul>
+                  <div class="tab-content card-body">
+                    <div id="menu0" class="tab-pane fade in active show">
+                      <div id="rna_expression_information_results" style="overflow: auto;"></div>
+                    </div>
+                    <div id="menu1" class="tab-pane fade">
+                      <div id="rna_expression_information_results_2" style="overflow: auto;"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header">
+                  <h4><a class="card-link" data-toggle="collapse" href="#collapse-3">Diagnostic performance</a></h4>
+                </div>
+                <div id="collapse-3" class="collapse show" data-parent="#box_result">
+                  <div class="card-body">
+                    <div id="diagnostic_performance_results" style="overflow: auto;"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header">
+                  <h4><a class="card-link" data-toggle="collapse" href="#collapse-4">Biomarker reports</a></h4>
+                </div>
+                <div id="collapse-4" class="collapse show" data-parent="#box_result">
+                  <div class="card-body">
+                    <div id="biomarker_reports_results" style="overflow: auto;"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header">
+                  <h4><a class="card-link" data-toggle="collapse" href="#collapse-5">FDA approval</a></h4>
+                </div>
+                <div id="collapse-5" class="collapse show" data-parent="#box_result">
+                  <div class="card-body">
+                    <div id="fda_approval_results" style="overflow: auto;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--end of exMarker result section -->
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span
+                >Copyright &copy;
+                <a target="_blank" href="http://bioinformatics.life.tsinghua.edu.cn">Lu Lab @ Tsinghua University</a>
+                2020 All rights reserved</span
+              >
+            </div>
+          </div>
+        </footer>
+        <!-- End of Footer -->
+      </div>
+      <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- the following three are used for typeahead -->
+    <script src="exmarker/Bootstrap-3-Typeahead-master/bootstrap3-typeahead.min.js"></script>
+
+    <script>
+      infor_content = '';
+      function RNA_information(gene_name) {
+        var content = $.ajax({
+          type: 'GET',
+          dataType: 'json',
+          url: './exmarker/php/RNA_information.php',
+          data: 'gene_name=' + gene_name,
+          error: function (jqXHR, textStatus, errorThrown) {
+            console.log('jqXHR:' + jqXHR + '\ntextStatus:' + textStatus + '\nerrorThrown:' + errorThrown);
+          },
+          success: function (response) {
+            data_response = response;
+            if (response.length !== 0) {
+              infor_content += '<table id="example2" class="exmarker_biomarkerDiv_for_table" style="width:100%">';
+              infor_content += '<tr><td style="padding-left: 0px;"><b>Gene name: </b>' + data_response[0][3] + '</td><td style="padding-left: 0px;"><b>Gene id: </b>' + data_response[0][1] + '</td></tr>';
+              infor_content += '<tr><td style="padding-left: 0px;"><b>Length: </b>' + data_response[0][7] + 'bp' + '</td><td style="padding-left: 0px;"><b>Gene type: </b>' + data_response[0][2] + '</td></tr>';
+              document.getElementById('rna_information').innerHTML = infor_content;
+              $('#example2').DataTable({
+                autoWidth: true,
+                scrollX: false,
+                bSort: false,
+                info: false,
+                paging: false,
+                searching: false,
+              });
+            }
+
+            console.log(data_response.length);
+
+            if (data_response.length == 0) {
+              $('#rna_information').html('No RNA information results presented in BDLB.');
+            }
+            return data_response;
+          },
+        });
+        return content;
+      }
+
+      search_rna_evidence_level_content = '';
+      function search_rna_evidence_level(RNA_name) {
+        var content = $.ajax({
+          type: 'GET',
+          dataType: 'json',
+          url: './exmarker/php/search_rna_evidence_level.php',
+          data: 'RNA_name=' + RNA_name,
+          error: function (jqXHR, textStatus, errorThrown) {
+            console.log('jqXHR:' + jqXHR + '\ntextStatus:' + textStatus + '\nerrorThrown:' + errorThrown);
+          },
+          success: function (response) {
+            data_response = response;
+            if (response.length !== 0) {
+              search_rna_evidence_level_content += '<table id="browse_rna_table" class="exmarker_biomarkerDiv_for_table" style="width:100%">';
+              search_rna_evidence_level_content += '<thead><tr><th>RNA Name</th><th>RNA Type</th><th>Disease Type</th><th>Evidence Level</th></tr></thead>';
+              search_rna_evidence_level_content += '<body>';
+              for (var i = 0; i < response.length; i++) {
+                search_rna_evidence_level_content += '<tr><td>' + data_response[i][2] + '<a></td><td>' + data_response[i][3] + '</td><td>' + data_response[i][4] + '</td><td>' + data_response[i][5] + '</td></tr>';
+              }
+              search_rna_evidence_level_content += '</body></table>';
+              document.getElementById('rna_evidence_level').innerHTML = search_rna_evidence_level_content;
+              $('#browse_rna_table').DataTable({
+                autoWidth: true,
+                scrollX: false,
+                bSort: false,
+                info: false,
+                paging: false,
+                searching: false,
+              });
+            }
+            console.log(response);
+            return response;
+          },
+        });
+        return content;
+      }
+
+      infor_content2 = '';
+      function expression_information(RNA_name) {
+        var content = $.ajax({
+          type: 'GET',
+          dataType: 'json',
+          url: './exmarker/php/expression_information.php',
+          data: 'RNA_name=' + RNA_name,
+          error: function (jqXHR, textStatus, errorThrown) {
+            console.log('jqXHR:' + jqXHR + '\ntextStatus:' + textStatus + '\nerrorThrown:' + errorThrown);
+          },
+          success: function (response) {
+            // alert(response)
+            data_response = response;
+            if (response.length !== 0) {
+              infor_content2 += '<table id="example3" class="exmarker_biomarkerDiv_for_table" style="width:100%"><thead>';
+              infor_content2 += '<tr><th>Datasets</th><th>RNA source</th><th>Comparison</th><th>Sample size</th>';
+              infor_content2 += '<th>Detection frequency</th><th>Expression Negative<i style="color:#26537A" title="Expression negative means the left one in the `Comparison` Column." class="fa fa-rss-square" aria-hidden="true"></i></th><th>Expression Positive<i style="color:#f00" title="Expression positive means the right one in the `Comparison` Column." class="fa fa-rss-square" aria-hidden="true"></i></th>';
+              // infor_content2+='<th>logFC</th><th>P-Value</th><th>FDR</th>'
+              // infor_content2+='<th>Plot</th>'
+              infor_content2 += '</tr></thead><body>';
+              for (var i = 0; i < response.length; i++) {
+                infor_content2 += '<tr><td>' + data_response[i][8] + '</td><td>' + data_response[i][9] + ' ' + data_response[i][10] + '</td><td>' + data_response[i][12] + '</td><td>' + data_response[i][13] + '</td>';
+                infor_content2 += '<td>' + data_response[i][14] + '</td><td>' + data_response[i][15] + '</td><td>' + data_response[i][16] + '</td>';
+                // infor_content2+='<td>'+data_response[i][17]+'</td><td>'+data_response[i][18]+'</td><td>'+data_response[i][19]+'</td>'
+                // infor_content2+='<td><a><i class="fa fa-picture-o" style="font-size:24px" aria-hidden="true"></i></a></td>'
+                infor_content2 += '</tr>';
+              }
+              infor_content2 += '</body></table>';
+              document.getElementById('rna_expression_information_results').innerHTML = infor_content2;
+              $('#example3').DataTable({
+                autoWidth: true,
+                scrollX: false,
+              });
+            }
+
+            console.log(data_response.length);
+
+            if (data_response.length == 0) {
+              $('#rna_expression_information_results').html('No expression abundance information processed in BDLB.');
+            }
+            return data_response;
+          },
+        });
+        return content;
+      }
+
+      infor_content4 = '';
+      function expression_information_2(RNA_name) {
+        var content = $.ajax({
+          type: 'GET',
+          dataType: 'json',
+          url: './exmarker/php/expression_information.php',
+          data: 'RNA_name=' + RNA_name,
+          error: function (jqXHR, textStatus, errorThrown) {
+            console.log('jqXHR:' + jqXHR + '\ntextStatus:' + textStatus + '\nerrorThrown:' + errorThrown);
+          },
+          success: function (response) {
+            // alert(response)
+            data_response = response;
+            if (response.length !== 0) {
+              infor_content4 += '<table id="example4" class="exmarker_biomarkerDiv_for_table" style="width:100%"><thead>';
+              infor_content4 += '<tr><th>Datasets</th><th>RNA source</th><th>Comparison</th><th>Sample size</th>';
+              // infor_content4+='<th>Detection frequency</th><th>Epxression N</th><th>Expression P</th>';
+              infor_content4 += '<th>logFC</th><th>P-Value</th><th>FDR</th>';
+              // infor_content4+='<th>Plot</th>'
+              infor_content4 += '</tr></thead><body>';
+              for (var i = 0; i < response.length; i++) {
+                infor_content4 += '<tr><td>' + data_response[i][8] + '</td><td>' + data_response[i][9] + ' ' + data_response[i][10] + '</td><td>' + data_response[i][12] + '</td><td>' + data_response[i][13] + '</td>';
+                // infor_content4+='<td>'+data_response[i][14]+'</td><td>'+data_response[i][15]+'</td><td>'+data_response[i][16]+'</td>'
+                infor_content4 += '<td>' + data_response[i][17] + '</td><td>' + data_response[i][18] + '</td><td>' + data_response[i][19] + '</td>';
+                // infor_content4+='<td><a><i class="fa fa-picture-o" style="font-size:24px" aria-hidden="true"></i></a></td>'
+                infor_content4 += '</tr>';
+              }
+              infor_content4 += '</body></table>';
+              document.getElementById('rna_expression_information_results_2').innerHTML = infor_content4;
+              $('#example4').DataTable({
+                autoWidth: true,
+                scrollX: false,
+              });
+              document.getElementById('loader_box').style.display = 'none';
+              document.getElementById('box_result').style.display = 'block';
+            }
+
+            console.log(data_response.length);
+
+            if (data_response.length == 0) {
+              $('#rna_expression_information_results_2').html('No differential expression information processed in BDLB.');
+            }
+            return data_response;
+          },
+        });
+        return content;
+      }
+
+      infor_content3 = '';
+      function diagnostic_performance(RNA_name) {
+        var content = $.ajax({
+          type: 'GET',
+          dataType: 'json',
+          url: './exmarker/php/diagnostic_performance.php',
+          data: 'RNA_name=' + RNA_name,
+          error: function (jqXHR, textStatus, errorThrown) {
+            console.log('jqXHR:' + jqXHR + '\ntextStatus:' + textStatus + '\nerrorThrown:' + errorThrown);
+          },
+          success: function (response) {
+            data_response = response;
+            if (response.length !== 0) {
+              infor_content3 += '<table id="example5" class="exmarker_biomarkerDiv_for_table" style="width:100%"><thead>';
+              infor_content3 += '<tr><th>Datasets</th><th>RNA source</th><th>Comparison</th><th>Sample size</th><th>AUC</th><th>Precision</th><th>Specificity</th><th>Sensitivity</th>';
+              infor_content3 += '</tr></thead><body>';
+              for (var i = 0; i < response.length; i++) {
+                infor_content3 += '<tr><td>' + data_response[i][8] + '</td><td>' + data_response[i][9] + ' ' + data_response[i][10] + '</td><td>' + data_response[i][12] + '</td><td>' + data_response[i][13] + '</td><td>' + data_response[i][14] + '</td><td>' + data_response[i][15] + '</td><td>' + data_response[i][16] + '</td><td>' + data_response[i][17] + '</td>';
+                infor_content3 += '</tr>';
+              }
+              infor_content3 += '</body></table>';
+              document.getElementById('diagnostic_performance_results').innerHTML = infor_content3;
+              $('#example5').DataTable({
+                autoWidth: true,
+                scrollX: false,
+              });
+              document.getElementById('loader_box').style.display = 'none';
+              document.getElementById('box_result').style.display = 'block';
+            }
+
+            console.log(data_response.length);
+
+            if (data_response.length == 0) {
+              $('#diagnostic_performance_results').html('No diagnostic performance information processed in BDLB.');
+            }
+            return data_response;
+          },
+        });
+        return content;
+      }
+
+      clinical_content = '';
+      function biomarker_report(RNA_name) {
+        var content = $.ajax({
+          type: 'GET',
+          dataType: 'json',
+          url: './exmarker/php/biomarker_report.php',
+          data: 'RNA_name=' + RNA_name,
+          error: function (jqXHR, textStatus, errorThrown) {
+            console.log('jqXHR:' + jqXHR + '\ntextStatus:' + textStatus + '\nerrorThrown:' + errorThrown);
+          },
+          success: function (response) {
+            data_response = response;
+            console.log(data_response);
+            if (data_response.length !== 0) {
+              for (var i = 0; i < data_response.length; i++) {
+                clinical_content += '<div style="margin:5px;cellpadding:10px ;padding:5px; border:1px solid #337ab7;table-layout:fixed">';
+                clinical_content += '<table id="" class="display" style="width:100%;"><tbody>';
+
+                clinical_content += '<tr><td colspan="2"><b>Reference: </b><a class="link_pmid_reference" target="_blank" href=https://pubmed.ncbi.nlm.nih.gov/' + response[i][22] + '/>' + response[i][20] + '</a></td></tr>';
+                clinical_content += '<tr><td width="40%"><b>Biomarker_Name: </b>' + response[i][3] + '</td><td><b>Specimen: </b>' + response[i][6] + '</td></tr>';
+                clinical_content += '<tr><td width="40%"><b>Expression_Trend: </b>' + response[i][8] + '</td><td><b>Clinical_Value: </b>' + response[i][9] + '</td></tr>';
+                clinical_content += '<tr><td width="40%"><b>Discrimination/Prediction: </b>' + response[i][7] + '</td><td><b>Early_Stage: </b>' + response[i][10] + '</td></tr>';
+                clinical_content += '<tr><td width="40%"><b>Etiology: </b>' + response[i][11] + '</td><td><b>Sample_Size: </b>' + response[i][14] + '</td></tr>';
+                clinical_content += '<tr><td width="40%"><b>Method: </b>' + response[i][15] + '</td><td><b>Single/Panel: </b>' + response[i][19] + '</td></tr>';
+                clinical_content += '<tr><td width="40%"><b>Publish_Year: </b>' + response[i][23] + '</td><td><b>Journal: </b>' + response[i][21] + '</td></tr>';
+                clinical_content += '<tr><td width="40%"><b>Region: </b>' + response[i][18] + '</td><td><b>Disease_Type: </b>' + response[i][5] + '</td></tr>';
+                clinical_content += '<tr><td colspan="2"><b>Cellular_Effect: </b>' + response[i][12] + '</td></tr>';
+                clinical_content += '<tr><td colspan="2"><b>Biomarker_Summary: </b>' + response[i][13] + '</td></tr>';
+
+                clinical_content += '</tbody></table>';
+                clinical_content += '</div>';
+              }
+
+              document.getElementById('biomarker_reports_results').innerHTML = clinical_content;
+              console.log(clinical_content);
+
+              // $('table.display').dataTable();
+            }
+            console.log(data_response.length);
+
+            if (data_response.length == 0) {
+              $('#biomarker_reports_results').html('No biomarker report information collected in BDLB.');
+            }
+            return data_response;
+          },
+        });
+        return content;
+      }
+
+      fda_approval_content = '';
+      function fda_approval_report(RNA_name) {
+        var content = $.ajax({
+          type: 'GET',
+          dataType: 'json',
+          url: './exmarker/php/rna_fda_approval.php',
+          data: 'gene_name=' + RNA_name,
+          error: function (jqXHR, textStatus, errorThrown) {
+            console.log('jqXHR:' + jqXHR + '\ntextStatus:' + textStatus + '\nerrorThrown:' + errorThrown);
+          },
+          success: function (response) {
+            data_response = response;
+            console.log('data_response');
+            console.log(data_response);
+            if (data_response.length !== 0) {
+              for (var i = 0; i < data_response.length; i++) {
+                fda_approval_content += '<div style="margin:5px;cellpadding:10px ;padding:5px; border:1px solid #337ab7;table-layout:fixed">';
+                fda_approval_content += '<table id="example7" class="display" style="width:100%;"><tbody>';
+
+                fda_approval_content += '<tr><td width="40%"><b>RNA_Name: </b>' + response[i][1] + '</td><td><b>Marker_Name: </b>' + response[i][3] + '</td></tr>';
+                fda_approval_content += '<tr><td width="40%"><b>Specimen: </b>' + response[i][7] + '</td><td><b>Marker_Type: </b>' + response[i][4] + '</td></tr>';
+                fda_approval_content += '<tr><td width="40%"><b>Methodology: </b>' + response[i][6] + '</td><td><b>Class: </b>' + response[i][10] + '</td></tr>';
+                fda_approval_content += '<tr><td width="40%"><b>Submission_ID: </b>' + response[i][9] + '</td><td><b>Year_First_Approved: </b>' + response[i][11] + '</td></tr>';
+                fda_approval_content += '<tr><td width="40%"><b>Cancer_Type: </b>' + response[i][5] + '</td><td><b>Evidence_Level: </b>' + response[i][12] + '</td></tr>';
+                fda_approval_content += '<tr><td colspan="2"><b>Biomarker_usage: </b>' + response[i][8] + '</td></tr>';
+
+                fda_approval_content += '</tbody></table>';
+                fda_approval_content += '</div>';
+              }
+              document.getElementById('fda_approval_results').innerHTML = fda_approval_content;
+              $('#example7').DataTable({
+                autoWidth: true,
+                scrollX: false,
+              });
+            }
+            if (data_response.length == 0) {
+              $('#fda_approval_results').html('No FDA approval biomarkers collected in BDLB.');
+            }
+            return data_response;
+          },
+        });
+        return content;
+      }
+
+      // typeahead 和 ajax 技术结合，实现动态查询
+      let name_content_list = [];
+      $(document).ready(
+        // 页面加载后自动运行
+        function () {
+          var content = $.ajax({
+            // ajax获取数据表中的HGNC_Symbol列中的内容，最终形成的是一个没有重复项的js数组
+            type: 'GET',
+            dataType: 'json',
+            url: 'exmarker/php/typeahead/typeahead_search_dna_markers.php',
+            success: function (response) {
+              if (response.length !== 0) {
+                for (var i = 0; i < response.length; i++) {
+                  // console.log(response[i][1]);
+                  name_content_list.push(response[i][0]);
+                }
+                name_content_list = unique(name_content_list); // 调用函数去重复
+              }
+              console.log(name_content_list);
+              // 调用typeahead实现自动填充
+              $('#select_gene_name').typeahead({
+                source: name_content_list,
+              });
+            },
+          });
+        }
+      );
+
+      // typeahead用，用于将获取的列表去重复的函数
+      function unique(arr) {
+        let hash = [];
+        for (let i = 0; i < arr.length; i++) {
+          if (arr.indexOf(arr[i]) === i) {
+            hash.push(arr[i]);
+          }
+        }
+        return hash;
+      }
+
+      function search() {
+        document.getElementById('loader_box').style.display = 'block';
+        gene_name = document.getElementById('select_gene_name').value;
+
+        if (gene_name == '') {
+          alert('Please enter the marker name.');
+          document.getElementById('loader_box').style.display = 'none';
+          // location.reload();
+        } else {
+          RNA_information(gene_name);
+          search_rna_evidence_level(gene_name);
+          expression_information(gene_name);
+          expression_information_2(gene_name);
+          diagnostic_performance(gene_name);
+          biomarker_report(gene_name);
+          fda_approval_report(gene_name);
+          document.getElementById('box_input').style.display = 'none';
+          document.getElementById('loader_box').style.display = 'none';
+          document.getElementById('box_result').style.display = 'block';
+
+          // document.getElementById('title_result').innerHTML = 'Current settings:<br />Disease: '+disease+'; Specimen: '+specimen+'; Dataset(s): '+datasets;
+          document.getElementById('miRBase_logo').href = 'http://www.mirbase.org/textsearch.shtml?q=' + gene_name;
+          document.getElementById('NCBI_logo').href = 'https://www.ncbi.nlm.nih.gov/search/all/?term=' + gene_name;
+          document.getElementById('ensembl_logo').href = 'http://asia.ensembl.org/Human/Search/Results?q=' + gene_name + ';site=ensembl;facet_species=Human';
+          document.getElementById('geneCards_logo').href = 'https://www.genecards.org/cgi-bin/carddisp.pl?gene=' + gene_name;
+        }
+      }
+    </script>
+
+    <!-- 用于在检索时Tips和RNA_type之间的联动 -->
+    <script src="./exmarker/js/tips_RNAname_search_RNA.js"></script>
+  </body>
+</html>

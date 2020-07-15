@@ -1,25 +1,25 @@
 <?php
-ini_set('memory_limit', '1024M');
+// ini_set('memory_limit', '1024M');
 $db = new PDO('mysql:host=localhost;dbname=bdlb1_1', 'root', '');
-$table='BDLB_protein_markers';
-$table2='FDA_approved_protein_markers';
+$table='BDLB_RNA_markers';
 
 $msgArray = array('code'=>0, 'data'=>array(), 'message'=>'参数接收错误，请关闭浏览器后重试。');
-// $gene_name = isset($_POST['gene_name']) ? trim($_POST['gene_name']) : trim($_GET['gene_name']);
+$RNA_name = isset($_POST['RNA_name']) ? trim($_POST['RNA_name']) : trim($_GET['RNA_name']);
+// $Disease_type = isset($_POST['Disease_type']) ? trim($_POST['Disease_type']) : trim($_GET['Disease_type']);
+
 
 header('content-type:application:json;charset=utf8');
 header('Access-Control-Allow-Origin:*');
 header('Access-Control-Allow-Methods:POST');
 header('Access-Control-Allow-Headers:x-requested-with,content-type');
 
-
-function gtfinfor($table,$table2){
+function gtfinfor($RNA_name,$table){
         global $db ;
-        $query = "select HGNC_Symbol from ".$table." union select Biomarker_Name from ".$table2;
+        $query = "select * from ".$table." where RNA_name='".$RNA_name."'";
         $result = $db->query($query);
         $resultArray = $result->fetchAll();
         return $resultArray;
 }
-$response=gtfinfor($table,$table2);
+$response=gtfinfor($RNA_name,$table);
 echo json_encode($response);
 ?>
