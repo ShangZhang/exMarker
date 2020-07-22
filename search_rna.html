@@ -69,30 +69,10 @@
                 >Biomacromolecule <br />
                 Classification:</h6
               >
-              <a class="collapse-item" href="#">DNA Markers</a>
-              <a class="collapse-item" href="#">RNA Markers</a>
-              <a class="collapse-item" href="#">Protein Markers</a>
-              <a class="collapse-item" href="#">Metabolite Markers</a>
-            </div>
-          </div>
-        </li>
-
-        <!-- Nav Item - Search Collapse Menu -->
-        <li class="nav-item">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSearch" aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-search-location"></i>
-            <span>Search</span>
-          </a>
-          <div id="collapseSearch" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-              <h6 class="collapse-header"
-                >Biomacromolecule <br />
-                Classification:</h6
-              >
-              <a class="collapse-item" href="#">DNA Markers</a>
-              <a class="collapse-item" href="#">RNA Markers</a>
-              <a class="collapse-item" href="#">Protein Markers</a>
-              <a class="collapse-item" href="#">Metabolite Markers</a>
+              <a class="collapse-item" href="search_dna.html">DNA Markers</a>
+              <a class="collapse-item" href="search_rna.html">RNA Markers</a>
+              <a class="collapse-item" href="search_protein.html">Protein Markers</a>
+              <a class="collapse-item" href="search_metabolite.html">Metabolite Markers</a>
             </div>
           </div>
         </li>
@@ -109,10 +89,10 @@
                 >Biomacromolecule <br />
                 Classification:</h6
               >
-              <a class="collapse-item" href="#">DNA Markers</a>
-              <a class="collapse-item" href="#">RNA Markers</a>
-              <a class="collapse-item" href="#">Protein Markers</a>
-              <a class="collapse-item" href="#">Metabolite Markers</a>
+              <a class="collapse-item" href="browse_dna.html">DNA Markers</a>
+              <a class="collapse-item" href="browse_rna.html">RNA Markers</a>
+              <a class="collapse-item" href="browse_protein.html">Protein Markers</a>
+              <a class="collapse-item" href="browse_metabolite.html">Metabolite Markers</a>
             </div>
           </div>
         </li>
@@ -138,6 +118,13 @@
           <a class="nav-link" href="./source.html">
             <i class="fas fa-fw fa-share-square"></i>
             <span>Source</span></a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="./api.html">
+            <i class="fas fa-cogs"></i>
+            <span>API</span></a
           >
         </li>
 
@@ -410,7 +397,7 @@
           success: function (response) {
             data_response = response;
             if (response.length !== 0) {
-              infor_content += '<table id="example2" class="exmarker_biomarkerDiv_for_table" style="width:100%">';
+              infor_content += '<table id="example2" class="table-bordered table-striped table-hover exmarker_biomarkerDiv_for_table" style="width:100%">';
               infor_content += '<tr><td style="padding-left: 0px;"><b>Gene name: </b>' + data_response[0][3] + '</td><td style="padding-left: 0px;"><b>Gene id: </b>' + data_response[0][1] + '</td></tr>';
               infor_content += '<tr><td style="padding-left: 0px;"><b>Length: </b>' + data_response[0][7] + 'bp' + '</td><td style="padding-left: 0px;"><b>Gene type: </b>' + data_response[0][2] + '</td></tr>';
               document.getElementById('rna_information').innerHTML = infor_content;
@@ -448,7 +435,7 @@
           success: function (response) {
             data_response = response;
             if (response.length !== 0) {
-              search_rna_evidence_level_content += '<table id="browse_rna_table" class="exmarker_biomarkerDiv_for_table" style="width:100%">';
+              search_rna_evidence_level_content += '<table id="browse_rna_table" class="table-bordered table-striped table-hover exmarker_biomarkerDiv_for_table" style="width:100%">';
               search_rna_evidence_level_content += '<thead><tr><th>RNA Name</th><th>RNA Type</th><th>Disease Type</th><th>Evidence Level</th></tr></thead>';
               search_rna_evidence_level_content += '<body>';
               for (var i = 0; i < response.length; i++) {
@@ -486,7 +473,7 @@
             // alert(response)
             data_response = response;
             if (response.length !== 0) {
-              infor_content2 += '<table id="example3" class="exmarker_biomarkerDiv_for_table" style="width:100%"><thead>';
+              infor_content2 += '<table id="example3" class="table-bordered table-striped table-hover exmarker_biomarkerDiv_for_table" style="width:100%"><thead>';
               infor_content2 += '<tr><th>Datasets</th><th>RNA source</th><th>Comparison</th><th>Sample size</th>';
               infor_content2 += '<th>Detection frequency</th><th>Expression Negative<i style="color:#26537A" title="Expression negative means the left one in the `Comparison` Column." class="fa fa-rss-square" aria-hidden="true"></i></th><th>Expression Positive<i style="color:#f00" title="Expression positive means the right one in the `Comparison` Column." class="fa fa-rss-square" aria-hidden="true"></i></th>';
               // infor_content2+='<th>logFC</th><th>P-Value</th><th>FDR</th>'
@@ -532,7 +519,7 @@
             // alert(response)
             data_response = response;
             if (response.length !== 0) {
-              infor_content4 += '<table id="example4" class="exmarker_biomarkerDiv_for_table" style="width:100%"><thead>';
+              infor_content4 += '<table id="example4" class="table-bordered table-striped table-hover exmarker_biomarkerDiv_for_table" style="width:100%"><thead>';
               infor_content4 += '<tr><th>Datasets</th><th>RNA source</th><th>Comparison</th><th>Sample size</th>';
               // infor_content4+='<th>Detection frequency</th><th>Epxression N</th><th>Expression P</th>';
               infor_content4 += '<th>logFC</th><th>P-Value</th><th>FDR</th>';
@@ -579,7 +566,7 @@
           success: function (response) {
             data_response = response;
             if (response.length !== 0) {
-              infor_content3 += '<table id="example5" class="exmarker_biomarkerDiv_for_table" style="width:100%"><thead>';
+              infor_content3 += '<table id="example5" class="table-bordered table-striped table-hover exmarker_biomarkerDiv_for_table" style="width:100%"><thead>';
               infor_content3 += '<tr><th>Datasets</th><th>RNA source</th><th>Comparison</th><th>Sample size</th><th>AUC</th><th>Precision</th><th>Specificity</th><th>Sensitivity</th>';
               infor_content3 += '</tr></thead><body>';
               for (var i = 0; i < response.length; i++) {

@@ -186,20 +186,43 @@
           <!-- Begin Page Content -->
           <div class="container-fluid" style="height: 90%;">
             <!-- Page Heading -->
-            <h1 class="h3 mb-4 text-gray-900 alert-link text-capitalize">Browse Protein Markers</h1>
+            <h1 class="h3 mb-4 text-gray-900 alert-link text-capitalize">Browse DNA Markers</h1>
 
             <!-- exMarker loader section -->
-            <div class="text-center" id="loader_box" style="display: none;">
+            <div class="text-center" id="loader_box">
               <i class="fa fa-cog fa-spin fa-5x fa-fw"></i>
               <span class="sr-only">Loading...</span>
             </div>
             <!-- end of exMarker search section -->
 
-            <!---exMarker result section -->
+            <!---exMarker result section  style="display: none;"-->
             <div id="box_result" class="exmarker_results_container">
-              <div class="col-md-12 col-xs-12">
-                <div class="row" style="overflow-x: scroll;">
-                  <div id="browse_protein_information_result" style="width: 100%;"></div>
+              <div class="card" id="browse_dna_main_table1">
+                <div class="card-header">
+                  <h4>
+                    <a data-toggle="collapse" href="#browse_dna_collapse-1" class="collapsed">DNA biomarkers in BDLB</a>
+                  </h4>
+                </div>
+                <div id="browse_dna_collapse-1" class="collapse show">
+                  <div class="card-body">
+                    <div id="browse_dna_information_result"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card" id="browse_dna_main_table2">
+                <div class="card-header">
+                  <h4>
+                    <a class="card-link" data-toggle="collapse" href="#browse_dna_collapse-2">Drug related biomarkers&nbsp;</a>
+                    <a href="https://www.oncokb.org/" target="_blank" class="tooltip-test" data-toggle="tooltip" title="https://www.oncokb.org/">
+                      <i class="fa fa-rss-square" aria-hidden="true"></i>
+                    </a>
+                  </h4>
+                </div>
+                <div id="browse_dna_collapse-2" class="collapse show">
+                  <div class="card-body">
+                    <div id="browse_dna_oncokb_result"></div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -249,12 +272,12 @@
     <script src="exmarker/Bootstrap-3-Typeahead-master/bootstrap3-typeahead.min.js"></script>
 
     <script>
-      browse_protein_infor_content = '';
-      function browse_protein_get_information(level) {
+      browse_dna_infor_content = '';
+      function browse_dna_get_information(level) {
         var content = $.ajax({
           type: 'GET',
           dataType: 'json',
-          url: './exmarker/php/browse_protein.php',
+          url: './exmarker/php/browse_dna.php',
           data: 'level=' + level,
           error: function (jqXHR, textStatus, errorThrown) {
             console.log('jqXHR:' + jqXHR + '\ntextStatus:' + textStatus + '\nerrorThrown:' + errorThrown);
@@ -262,46 +285,46 @@
           success: function (response) {
             data_response = response;
             if (response.length !== 0) {
-              browse_protein_infor_content += '<table id="browse_protein_table" class="table-bordered table-striped table-hover exmarker_biomarkerDiv_for_table">';
-              // browse_protein_infor_content+='<thead><tr><th style="visibility:hidden;">Protein Name</th><th>Disease Type</th><th>Evidence Level</th></tr></thead>';
-              browse_protein_infor_content += '<thead><tr><th>Protein Name</th><th>Disease Type</th><th>Evidence Level</th></tr></thead>';
-              // browse_protein_infor_content+='<tfoot><tr><th>Protein Name</th><th>Disease Type</th><th>Evidence Level</th></tr></tfoot>';
-              browse_protein_infor_content += '<body>';
+              browse_dna_infor_content += '<table id="browse_dna_table1" class="table-bordered table-striped table-hover exmarker_biomarkerDiv_for_table">';
+              // browse_dna_infor_content+='<thead><tr><th style="visibility:hidden;">HGNC Symbol</th><th>Disease Type</th><th>Evidence Level</th></tr></thead>';
+              browse_dna_infor_content += '<thead class="thead-dark"><tr><th>HGNC Symbol</th><th>Disease Type</th><th>Evidence Level</th></tr></thead>';
+              // browse_dna_infor_content+='<tfoot><tr><th>HGNC Symbol</th><th>Disease Type</th><th>Evidence Level</th></tr></tfoot>';
+              browse_dna_infor_content += '<tbody>';
               for (var i = 0; i < response.length; i++) {
-                browse_protein_infor_content += '<tr><td><a href="./a2.search_protein.html" target="_blank">' + data_response[i][2] + '<a></td><td>' + data_response[i][3] + '</td><td>' + data_response[i][4] + '</td></tr>';
+                browse_dna_infor_content += '<tr><td><a href="./a2.search_DNA.html" target="_blank">' + data_response[i][2] + '</a></td><td>' + data_response[i][3] + '</td><td>' + data_response[i][4] + '</td></tr>';
               }
-              browse_protein_infor_content += '</body></table>';
-              document.getElementById('browse_protein_information_result').innerHTML = browse_protein_infor_content;
-              $('#browse_protein_table').DataTable({
-                autoWidth: true,
+              browse_dna_infor_content += '</tbody></table>';
+              document.getElementById('browse_dna_information_result').innerHTML = browse_dna_infor_content;
+              $('#browse_dna_table1').DataTable({
+                sScrollX: false,
                 scrollX: false,
                 columnDefs: [{ width: '10%', targets: 0 }],
-                initComplete: function () {
-                  var api = this.api();
-                  api.columns().every(function (i) {
-                    if (i != 0) {
-                      // 第1 列不添加，其余的添加
-                      var column = api.column(i);
-                      var select = $('<select><option value=""></option></select>')
-                        .appendTo($(column.header()))
-                        .on('change', function () {
-                          var val = $.fn.dataTable.util.escapeRegex($(this).val());
+                // initComplete: function () {
+                //   var api = this.api();
+                //   api.columns().every(function (i) {
+                //     if (i != 0) {
+                //       // 第1 列不添加，其余的添加
+                //       var column = api.column(i);
+                //       var select = $('<select><option value=""></option></select>')
+                //         .appendTo($(column.header()))
+                //         .on('change', function () {
+                //           var val = $.fn.dataTable.util.escapeRegex($(this).val());
 
-                          column.search(val ? '^' + val + '$' : '', true, false).draw();
-                        });
-                      column
-                        .data()
-                        .unique()
-                        .sort()
-                        .each(function (d, j) {
-                          select.append('<option value="' + d + '">' + d + '</option>');
-                        });
-                    }
-                  });
-                },
+                //           column.search(val ? '^' + val + '$' : '', true, false).draw();
+                //         });
+                //       column
+                //         .data()
+                //         .unique()
+                //         .sort()
+                //         .each(function (d, j) {
+                //           select.append('<option value="' + d + '">' + d + '</option>');
+                //         });
+                //     }
+                //   });
+                // },
               });
-              document.getElementById('browse_protein_loader_box1').style.display = 'none';
-              document.getElementById('browse_protein_main_table').style.display = 'block';
+              document.getElementById('loader_box').style.display = 'none';
+              document.getElementById('browse_dna_main_table1').style.display = 'block';
             }
             console.log(response);
             return response;
@@ -310,7 +333,75 @@
         return content;
       }
 
-      browse_protein_get_information('Level 2');
+      browse_dna_infor_content2 = '';
+      function browse_dna_get_oncokb(level) {
+        //var key="ENST00000384052";
+        var content = $.ajax({
+          type: 'GET',
+          dataType: 'json',
+          url: './exmarker/php/browse_oncokb.php',
+          data: 'level=' + level,
+          error: function (jqXHR, textStatus, errorThrown) {
+            // alert("jqXHR:"+jqXHR+"\ntextStatus:"+textStatus+"\nerrorThrown:"+errorThrown);
+            console.log('jqXHR:' + jqXHR + '\ntextStatus:' + textStatus + '\nerrorThrown:' + errorThrown);
+          },
+          success: function (response) {
+            data_response = response;
+            if (response.length !== 0) {
+              browse_dna_infor_content2 += '<table id="browse_dna_table2" class="table-bordered table-striped table-hover exmarker_biomarkerDiv_for_table">';
+              // browse_dna_infor_content2+='<thead><tr><th style="visibility:hidden;">HGNC Symbol</th><th style="visibility:hidden;">Alteration</th><th>Tumor Type</th><th>Drugs</th><th>Evidence Level</th></tr></thead>';
+              browse_dna_infor_content2 += '<thead class="thead-dark"><tr><th>HGNC Symbol</th><th>Alteration</th><th>Tumor Type</th><th>Drugs</th><th>Evidence Level</th></tr></thead>';
+              // browse_dna_infor_content2+='<tfoot><tr><th>HGNC Symbol</th><th>Alteration</th><th>Tumor Type</th><th>Drugs</th><th>Evidence Level</th></tr></tfoot>';
+              browse_dna_infor_content2 += '<tbody>';
+              for (var i = 0; i < data_response.length; i++) {
+                browse_dna_infor_content2 += '<tr><td><a href="./a2.search_DNA.html" target="_blank">' + data_response[i][1] + '</a></td><td>' + data_response[i][2] + '</td><td>' + data_response[i][3] + '</td><td>' + data_response[i][4] + '</td><td>' + data_response[i][5] + '</td></tr>';
+              }
+              browse_dna_infor_content2 += '</body></table>';
+              document.getElementById('browse_dna_oncokb_result').innerHTML = browse_dna_infor_content2;
+              $('#browse_dna_table2').DataTable({
+                autoWidth: false,
+                scrollX: false,
+                columnDefs: [{ width: '10%', targets: 0 }],
+                // "autoWidth":false,
+                // "scrollY":false,
+
+                // initComplete: function () {
+                //   var api = this.api();
+                //   api.columns().every(function (i) {
+                //     if (i != 0) {
+                //       // 第1 列不添加，其余的添加
+                //       var column = api.column(i);
+                //       var select = $('<select><option value=""></option></select>')
+                //         .appendTo($(column.header()))
+                //         .on('change', function () {
+                //           var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                //           column.search(val ? '^' + val + '$' : '', true, false).draw();
+                //         });
+                //       column
+                //         .data()
+                //         .unique()
+                //         .sort()
+                //         .each(function (d, j) {
+                //           select.append('<option value="' + d + '">' + d + '</option>');
+                //         });
+                //     }
+                //   });
+                // },
+              });
+              document.getElementById('loader_box').style.display = 'none';
+              document.getElementById('browse_dna_main_table2').style.display = 'block';
+            }
+            console.log(response);
+            return response;
+          },
+        });
+        return content;
+      }
+
+      browse_dna_get_information('Level 2');
+      browse_dna_get_oncokb('Level 2');
     </script>
+    <!-- end of script DNA results section -->
   </body>
 </html>

@@ -184,22 +184,79 @@
           <!-- End of Topbar -->
 
           <!-- Begin Page Content -->
-          <div class="container-fluid" style="height: 90%;">
+          <div class="container-fluid">
             <!-- Page Heading -->
-            <h1 class="h3 mb-4 text-gray-900 alert-link text-capitalize">Browse Protein Markers</h1>
-
-            <!-- exMarker loader section -->
-            <div class="text-center" id="loader_box" style="display: none;">
-              <i class="fa fa-cog fa-spin fa-5x fa-fw"></i>
-              <span class="sr-only">Loading...</span>
+            <h1 class="h3 mb-4 text-gray-900 alert-link text-capitalize">API</h1>
+            <div class="text-capitalize px-3">
+              <!-- <div> <h4 class="font-weight-bold" style="margin-bottom: 0px;">Table of Contents</h4> </div> -->
+              <!--panel-heading-->
+              <ul>
+                <li>
+                  <h6><a class="font-weight-bold" href="#overview">Overview of ExMarker API</a></h6></li
+                >
+                <li
+                  ><h6><a class="font-weight-bold" href="#api_content">ExMarker API Content</a></h6></li
+                >
+              </ul>
             </div>
-            <!-- end of exMarker search section -->
 
-            <!---exMarker result section -->
-            <div id="box_result" class="exmarker_results_container">
-              <div class="col-md-12 col-xs-12">
-                <div class="row" style="overflow-x: scroll;">
-                  <div id="browse_protein_information_result" style="width: 100%;"></div>
+            <div class="row">
+              <div class="col-lg-12">
+                <!-- Overview of exMarker Cards -->
+                <div class="card shadow mb-4" id="overview">
+                  <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary text-capitalize">Overview of exMarker api</h6>
+                  </div>
+                  <div class="card-body text-justify">
+                    <p>ExMarker provides JSON-based web service APIs for fetching bulk results. You can use the APIs by any language that can handle HTTP request and response. </p>
+                  </div>
+                </div>
+
+                <!-- Web browser compatibility Cards -->
+                <div class="card shadow mb-4" id="api_content">
+                  <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary text-capitalize">ExMarker API Content</h6>
+                  </div>
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table table-bordered small" id="web-browser-compatibility" width="100%" cellspacing="0">
+                        <thead>
+                          <tr>
+                            <td>Name</td>
+                            <td>URL</td>
+                            <td>Content</td>
+                            <td>HTTP Method</td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Browse DNA results</td>
+                            <td>http://exmarker.zhangshang.online/exmarker/php/browse_dna.php</td>
+                            <td>JSON contents of the Browse DNA results</td>
+                            <td>GET</td>
+                          </tr>
+                          <tr>
+                            <td>Browse RNA results</td>
+                            <td>http://exmarker.zhangshang.online/exmarker/php/browse_rna.php</td>
+                            <td>JSON contents of the Browse RNA results</td>
+                            <td>GET</td>
+                          </tr>
+                          <tr>
+                            <td>Browse Protein results</td>
+                            <td>http://exmarker.zhangshang.online/exmarker/php/browse_protein.php</td>
+                            <td>JSON content of the Browse Protein results</td>
+                            <td>GET</td>
+                          </tr>
+                          <tr>
+                            <td>Browse Metabolite results</td>
+                            <td>http://exmarker.zhangshang.online/exmarker/php/browse_metabolite.php</td>
+                            <td>JSON content of the Browse Protein results</td>
+                            <td>GET</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -238,79 +295,26 @@
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
-
     <!-- Page level plugins -->
     <script src="vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-    <!-- the following three are used for typeahead -->
-    <script src="exmarker/Bootstrap-3-Typeahead-master/bootstrap3-typeahead.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
 
+    <!-- Call the dataTables jQuery plugin -->
     <script>
-      browse_protein_infor_content = '';
-      function browse_protein_get_information(level) {
-        var content = $.ajax({
-          type: 'GET',
-          dataType: 'json',
-          url: './exmarker/php/browse_protein.php',
-          data: 'level=' + level,
-          error: function (jqXHR, textStatus, errorThrown) {
-            console.log('jqXHR:' + jqXHR + '\ntextStatus:' + textStatus + '\nerrorThrown:' + errorThrown);
-          },
-          success: function (response) {
-            data_response = response;
-            if (response.length !== 0) {
-              browse_protein_infor_content += '<table id="browse_protein_table" class="table-bordered table-striped table-hover exmarker_biomarkerDiv_for_table">';
-              // browse_protein_infor_content+='<thead><tr><th style="visibility:hidden;">Protein Name</th><th>Disease Type</th><th>Evidence Level</th></tr></thead>';
-              browse_protein_infor_content += '<thead><tr><th>Protein Name</th><th>Disease Type</th><th>Evidence Level</th></tr></thead>';
-              // browse_protein_infor_content+='<tfoot><tr><th>Protein Name</th><th>Disease Type</th><th>Evidence Level</th></tr></tfoot>';
-              browse_protein_infor_content += '<body>';
-              for (var i = 0; i < response.length; i++) {
-                browse_protein_infor_content += '<tr><td><a href="./a2.search_protein.html" target="_blank">' + data_response[i][2] + '<a></td><td>' + data_response[i][3] + '</td><td>' + data_response[i][4] + '</td></tr>';
-              }
-              browse_protein_infor_content += '</body></table>';
-              document.getElementById('browse_protein_information_result').innerHTML = browse_protein_infor_content;
-              $('#browse_protein_table').DataTable({
-                autoWidth: true,
-                scrollX: false,
-                columnDefs: [{ width: '10%', targets: 0 }],
-                initComplete: function () {
-                  var api = this.api();
-                  api.columns().every(function (i) {
-                    if (i != 0) {
-                      // 第1 列不添加，其余的添加
-                      var column = api.column(i);
-                      var select = $('<select><option value=""></option></select>')
-                        .appendTo($(column.header()))
-                        .on('change', function () {
-                          var val = $.fn.dataTable.util.escapeRegex($(this).val());
-
-                          column.search(val ? '^' + val + '$' : '', true, false).draw();
-                        });
-                      column
-                        .data()
-                        .unique()
-                        .sort()
-                        .each(function (d, j) {
-                          select.append('<option value="' + d + '">' + d + '</option>');
-                        });
-                    }
-                  });
-                },
-              });
-              document.getElementById('browse_protein_loader_box1').style.display = 'none';
-              document.getElementById('browse_protein_main_table').style.display = 'block';
-            }
-            console.log(response);
-            return response;
-          },
+      $(document).ready(function () {
+        $('#web-browser-compatibility').DataTable({
+          bInfo: false,
+          bFilter: false,
+          bJQueryUI: true,
+          bAutoWidth: true,
+          bLengthChange: false,
+          paging: false,
+          stripeClasses: ['strip1', 'strip2'],
         });
-        return content;
-      }
-
-      browse_protein_get_information('Level 2');
+      });
     </script>
   </body>
 </html>

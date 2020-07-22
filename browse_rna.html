@@ -69,30 +69,10 @@
                 >Biomacromolecule <br />
                 Classification:</h6
               >
-              <a class="collapse-item" href="#">DNA Markers</a>
-              <a class="collapse-item" href="#">RNA Markers</a>
-              <a class="collapse-item" href="#">Protein Markers</a>
-              <a class="collapse-item" href="#">Metabolite Markers</a>
-            </div>
-          </div>
-        </li>
-
-        <!-- Nav Item - Search Collapse Menu -->
-        <li class="nav-item">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSearch" aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-search-location"></i>
-            <span>Search</span>
-          </a>
-          <div id="collapseSearch" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-              <h6 class="collapse-header"
-                >Biomacromolecule <br />
-                Classification:</h6
-              >
-              <a class="collapse-item" href="#">DNA Markers</a>
-              <a class="collapse-item" href="#">RNA Markers</a>
-              <a class="collapse-item" href="#">Protein Markers</a>
-              <a class="collapse-item" href="#">Metabolite Markers</a>
+              <a class="collapse-item" href="search_dna.html">DNA Markers</a>
+              <a class="collapse-item" href="search_rna.html">RNA Markers</a>
+              <a class="collapse-item" href="search_protein.html">Protein Markers</a>
+              <a class="collapse-item" href="search_metabolite.html">Metabolite Markers</a>
             </div>
           </div>
         </li>
@@ -109,10 +89,10 @@
                 >Biomacromolecule <br />
                 Classification:</h6
               >
-              <a class="collapse-item" href="#">DNA Markers</a>
-              <a class="collapse-item" href="#">RNA Markers</a>
-              <a class="collapse-item" href="#">Protein Markers</a>
-              <a class="collapse-item" href="#">Metabolite Markers</a>
+              <a class="collapse-item" href="browse_dna.html">DNA Markers</a>
+              <a class="collapse-item" href="browse_rna.html">RNA Markers</a>
+              <a class="collapse-item" href="browse_protein.html">Protein Markers</a>
+              <a class="collapse-item" href="browse_metabolite.html">Metabolite Markers</a>
             </div>
           </div>
         </li>
@@ -138,6 +118,13 @@
           <a class="nav-link" href="./source.html">
             <i class="fas fa-fw fa-share-square"></i>
             <span>Source</span></a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="./api.html">
+            <i class="fas fa-cogs"></i>
+            <span>API</span></a
           >
         </li>
 
@@ -212,7 +199,7 @@
             <div id="box_result" class="exmarker_results_container" style="display: none;">
               <div class="col-md-12 col-xs-12">
                 <div class="row" style="overflow-x: scroll;">
-                  <div id="browse_rna_information_result"></div>
+                  <div id="browse_rna_information_result" style="width: 100%;"></div>
                 </div>
               </div>
             </div>
@@ -276,7 +263,7 @@
           success: function (response) {
             data_response = response;
             if (response.length !== 0) {
-              browse_rna_infor_content += '<table id="browse_rna_table" class="display" style="width:100%">';
+              browse_rna_infor_content += '<table id="browse_rna_table" class="table-bordered table-striped table-hover exmarker_biomarkerDiv_for_table" style="width:100%">';
               // browse_rna_infor_content+='<thead><tr><th style="visibility:hidden;">RNA Name</th><th>RNA Type</th><th>Disease Type</th><th>Evidence Level</th></tr></thead>';
               browse_rna_infor_content += '<thead><tr><th>RNA Name</th><th>RNA Type</th><th>Disease Type</th><th>Evidence Level</th></tr></thead>';
               // browse_rna_infor_content+='<tfoot><tr><th>RNA Name</th><th>RNA Type</th><th>Disease Type</th><th>Evidence Level</th></tr></tfoot>';
