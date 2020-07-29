@@ -20,7 +20,7 @@
     <!-- ExMarker styles -->
     <link rel="stylesheet" href="./exmarker/css/exmarker.css" />
 
-    <!-- the style is wholely for Map, copy from http://lulab.life.tsinghua.edu.cn/map.html @ 27 machine /home/www/wwwroot/ncrnalab/map.html -->
+    <!-- this CSS style is wholely for Map section, copy from http://lulab.life.tsinghua.edu.cn/map.html @ 27 machine /home/www/wwwroot/ncrnalab/map.html -->
     <style>
       html,
       body,
@@ -34,7 +34,7 @@
       }
       .amap-info-content {
         border: 1px #bbb4b4 solid;
-        border-radius: 15px;
+        border-radius: 8px;
       }
       .lulab_head {
         color: #cc5522;
@@ -350,9 +350,10 @@
         //构建信息窗体中显示的内容
         var info = [];
         info.push("<div class='input-card content-window-card'><div></div> ");
-        info.push('<div style="padding:7px 0px 0px 0px;"><h6 class="lulab_head">Lu Lab @ Tsinghua University</h6>');
+        info.push('<div style="padding:0px 0px 0px 0px;"><h6 class="lulab_head">Lu Lab @ Tsinghua University</h6>');
         info.push("<p class='input-item lulab_txt'>Addr.: Biotech. Building, School of Life Sciences <br>Room: 2-108, 2-110, 2-111, 3-106, 3-109.<br>Tel.: 010-62789217</p></div></div>");
-        info.push("<p class='input-item lulab_txt'>  </p></div></div>");
+        info.push('</div></div>');
+        // info.push("<p class='input-item lulab_txt'>  </p></div></div>");
 
         infoWindow = new AMap.InfoWindow({
           content: info.join(''), //使用默认信息窗体框样式，显示信息内容

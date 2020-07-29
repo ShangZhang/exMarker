@@ -200,10 +200,17 @@
             <!-- end of exMarker search section -->
 
             <!---exMarker result section -->
-            <div id="box_result" class="exmarker_results_container" style="display: none;">
-              <div class="col-md-12 col-xs-12">
-                <div class="row" style="overflow-x: scroll;">
-                  <div id="browse_rna_information_result" style="width: 100%;"></div>
+            <div id="box_result" class="exmarker_results_container">
+              <div class="card" id="browse_dna_main_table1">
+                <div class="card-header">
+                  <h4>
+                    <a data-toggle="collapse" href="#browse_dna_collapse-1" class="collapsed">RNA biomarkers in BDLB</a>
+                  </h4>
+                </div>
+                <div id="browse_dna_collapse-1" class="collapse show">
+                  <div class="card-body">
+                    <div id="browse_rna_information_result"></div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -267,9 +274,9 @@
           success: function (response) {
             data_response = response;
             if (response.length !== 0) {
-              browse_rna_infor_content += '<table id="browse_rna_table" class="table-bordered table-striped table-hover exmarker_biomarkerDiv_for_table" style="width:100%">';
+              browse_rna_infor_content += '<table id="browse_rna_table" class="table table-striped table-hover exmarker_biomarkerDiv_for_table" style="width:100%">';
               // browse_rna_infor_content+='<thead><tr><th style="visibility:hidden;">RNA Name</th><th>RNA Type</th><th>Disease Type</th><th>Evidence Level</th></tr></thead>';
-              browse_rna_infor_content += '<thead><tr><th>RNA Name</th><th>RNA Type</th><th>Disease Type</th><th>Evidence Level</th></tr></thead>';
+              browse_rna_infor_content += '<thead class="thead-light"><tr><th>RNA Name</th><th>RNA Type</th><th>Disease Type</th><th>Evidence Level</th></tr></thead>';
               // browse_rna_infor_content+='<tfoot><tr><th>RNA Name</th><th>RNA Type</th><th>Disease Type</th><th>Evidence Level</th></tr></tfoot>';
               browse_rna_infor_content += '<body>';
               for (var i = 0; i < response.length; i++) {
@@ -280,31 +287,33 @@
               $('#browse_rna_table').DataTable({
                 processing: true,
                 autoWidth: true,
-                scrollX: false,
+                scrollX: true,
+                // columnDefs: [{ width: '10%', targets: 0 }],
                 // "serverSide": true,
 
-                // initComplete: function () {
-                //   var api = this.api();
-                //   api.columns().every( function (i) {
-                //     if (i != 0){    // 第1 列不添加，其余的添加
-                //       var column = api.column(i);
-                //       var select = $('<select><option value=""></option></select>')
-                //           .appendTo( $(column.header())  )
-                //           .on( 'change', function () {
-                //               var val = $.fn.dataTable.util.escapeRegex(
-                //                   $(this).val()
-                //               );
+                initComplete: function () {
+                  var api = this.api();
+                  api.columns().every(function (i) {
+                    if (i != 0) {
+                      // 第1 列不添加，其余的添加
+                      var column = api.column(i);
+                      var select = $('<select><option value=""></option></select>')
+                        .appendTo($(column.header()))
+                        .on('change', function () {
+                          var val = $.fn.dataTable.util.escapeRegex($(this).val());
 
-                //               column
-                //                   .search( val ? '^'+val+'$' : '', true, false )
-                //                   .draw();
-                //           } );
-                //       column.data().unique().sort().each( function ( d, j ) {
-                //           select.append( '<option value="'+d+'">'+d+'</option>' )
-                //       } );
-                //     }
-                //   } );
-                // }
+                          column.search(val ? '^' + val + '$' : '', true, false).draw();
+                        });
+                      column
+                        .data()
+                        .unique()
+                        .sort()
+                        .each(function (d, j) {
+                          select.append('<option value="' + d + '">' + d + '</option>');
+                        });
+                    }
+                  });
+                },
               });
               document.getElementById('loader_box').style.display = 'none';
               document.getElementById('box_result').style.display = 'block';

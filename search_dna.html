@@ -177,7 +177,7 @@
               </div>
             </form> -->
             <div>
-              <h1 class="h3 text-gray-900 alert-link text-capitalize" style="text-indent: 0.5em;">Search DNA Markers</h1>
+              <h1 class="h3 text-gray-900 alert-link text-capitalize" style="text-indent: 0.5em;">Evaluate DNA Markers</h1>
             </div>
 
             <!-- 一个检查mobil friendly的小工具，有点画蛇添足 -->
@@ -203,7 +203,7 @@
                 <div class="exmarker_search_item text-center">
                   <h5>
                     Marker name
-                    <a href="./a4.EBD_help.html#how_to_search" target="_blank" title="input description"> <i class="fa fa-question-circle"></i> </a>:
+                    <a href="./help.html#input_description" target="_blank" data-toggle="tooltip" title="Click to jump to the page of input description"><i class="fa fa-question-circle"></i></a>:
                   </h5>
                   <div class="exmarker_search_div_for_form">
                     <form>
@@ -240,7 +240,7 @@
                 </div>
                 <div id="collapse-6" class="collapse show">
                   <div class="card-body">
-                    <div id="dna_evidence_level"></div>
+                    <div id="dna_evidence_level" class="exmarker_biomarkerDiv_for_table"></div>
                   </div>
                 </div>
               </div>
@@ -275,7 +275,7 @@
                 </div>
                 <div id="collapse-5" class="collapse show">
                   <div class="card-body">
-                    <div id="dna_oncokb"></div>
+                    <div id="dna_oncokb" class="exmarker_biomarkerDiv_for_table"></div>
                   </div>
                 </div>
               </div>
@@ -339,8 +339,8 @@
           success: function (response) {
             data_response = response;
             if (response.length !== 0) {
-              dna_evidence_level_content += '<table id="browse_rna_table" class="table-bordered table-striped table-hover exmarker_biomarkerDiv_for_table" style="width:100%">';
-              dna_evidence_level_content += '<thead><tr><th>Gene Symbol</th><th>Disease Type</th><th>Evidence Level</th></tr></thead>';
+              dna_evidence_level_content += '<table id="browse_rna_table" class="table table-striped table-hover" style="width:100%">';
+              dna_evidence_level_content += '<thead class="thead-light"><tr><th>Gene Symbol</th><th>Disease Type</th><th>Evidence Level</th></tr></thead>';
               dna_evidence_level_content += '<body>';
               for (var i = 0; i < response.length; i++) {
                 dna_evidence_level_content += '<tr><td>' + data_response[i][2] + '</td><td>' + data_response[i][3] + '</td><td>' + data_response[i][4] + '</td></tr>';
@@ -349,7 +349,10 @@
               document.getElementById('dna_evidence_level').innerHTML = dna_evidence_level_content;
               $('#browse_rna_table').DataTable({
                 autoWidth: true,
-                scrollX: false,
+                scrollX: true,
+                scrollY: true,
+                // columnDefs: [{ width: '10%', targets: 0 }],
+
                 bSort: false,
                 info: false,
                 paging: false,
@@ -378,7 +381,7 @@
             if (response.length !== 0) {
               for (var i = 0; i < data_response.length; i++) {
                 dna_biomarker_report_content += '<div class="exmarker_biomarkerDiv_for_table">';
-                dna_biomarker_report_content += '<table><tbody>';
+                dna_biomarker_report_content += '<table class="table table-striped table-hover" style="width:100%"><tbody>';
 
                 dna_biomarker_report_content += '<tr><td colspan="2"><b>Reference: </b><a class="link_pmid_reference" target="_blank" href=https://pubmed.ncbi.nlm.nih.gov/' + response[i][22] + '/>' + response[i][19] + '</a></td></tr>';
                 dna_biomarker_report_content += '<tr><td width="40%"><b>Biomarker_Name: </b>' + response[i][2] + '</td><td><b>Marker_Type: </b>' + response[i][3] + '</td></tr>';
@@ -428,7 +431,7 @@
             if (response.length !== 0) {
               for (var i = 0; i < data_response.length; i++) {
                 dna_fda_approval_content += '<div class="exmarker_biomarkerDiv_for_table">';
-                dna_fda_approval_content += '<table><tbody>';
+                dna_fda_approval_content += '<table class="table table-striped table-hover" style="width:100%"><tbody>';
 
                 dna_fda_approval_content += '<tr><td width="40%"><b>Gene_Symbol: </b>' + response[i][1] + '</td><td><b>Marker_Name: </b>' + response[i][3] + '</td></tr>';
                 dna_fda_approval_content += '<tr><td width="40%"><b>Marker_Name: </b>' + response[i][7] + '</td><td><b>Marker_Type: </b>' + response[i][4] + '</td></tr>';
@@ -468,9 +471,9 @@
           success: function (response) {
             data_response = response;
             if (response.length !== 0) {
-              dna_oncokb_content += '<table id="dna_oncokb_table" class="table-bordered table-striped table-hover exmarker_biomarkerDiv_for_table" style="width:100%;"><thead>';
-              dna_oncokb_content += '<tr><th>Gene Symbol</th><th>Alteration</th><th>Tumor Type</th><th>Drugs</th><th>Evidence Level</th>';
-              dna_oncokb_content += '</tr></thead><body>';
+              dna_oncokb_content += '<table id="dna_oncokb_table" class="table table-striped table-hover" style="width:100%">';
+              dna_oncokb_content += '<thead class="thead-light"><tr><th>Gene Symbol</th><th>Alteration</th><th>Tumor Type</th><th>Drugs</th><th>Evidence Level</th></tr></thead>';
+              dna_oncokb_content += '<body>';
 
               for (var i = 0; i < data_response.length; i++) {
                 dna_oncokb_content += '<tr><td>' + data_response[i][1] + '</td><td>' + data_response[i][2] + '</td><td>' + data_response[i][3] + '</td><td>' + data_response[i][4] + '</td><td>' + data_response[i][5] + '</td>';
@@ -480,7 +483,10 @@
               document.getElementById('dna_oncokb').innerHTML = dna_oncokb_content;
               $('#dna_oncokb_table').DataTable({
                 autoWidth: true,
-                scrollX: false,
+                scrollX: true,
+                scrollY: true,
+                // columnDefs: [{ width: '10%', targets: 0 }],
+
                 bSort: false,
                 info: false,
                 paging: false,
@@ -556,7 +562,7 @@
       }
     </script>
 
-    <!-- oncokb tips -->
+    <!-- marker name tips and oncokb tips -->
     <script>
       $(document).ready(function () {
         $('[data-toggle="tooltip"]').tooltip();

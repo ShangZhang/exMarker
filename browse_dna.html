@@ -289,43 +289,44 @@
           success: function (response) {
             data_response = response;
             if (response.length !== 0) {
-              browse_dna_infor_content += '<table id="browse_dna_table1" class="table-bordered table-striped table-hover exmarker_biomarkerDiv_for_table">';
+              browse_dna_infor_content += '<table id="browse_dna_table1" class="table table-striped table-hover exmarker_biomarkerDiv_for_table" style="width:100%">';
               // browse_dna_infor_content+='<thead><tr><th style="visibility:hidden;">HGNC Symbol</th><th>Disease Type</th><th>Evidence Level</th></tr></thead>';
-              browse_dna_infor_content += '<thead class="thead-dark"><tr><th>HGNC Symbol</th><th>Disease Type</th><th>Evidence Level</th></tr></thead>';
+              browse_dna_infor_content += '<thead class="thead-light"><tr><th>HGNC Symbol</th><th>Disease Type</th><th>Evidence Level</th></tr></thead>';
               // browse_dna_infor_content+='<tfoot><tr><th>HGNC Symbol</th><th>Disease Type</th><th>Evidence Level</th></tr></tfoot>';
               browse_dna_infor_content += '<tbody>';
               for (var i = 0; i < response.length; i++) {
-                browse_dna_infor_content += '<tr><td><a href="./a2.search_DNA.html" target="_blank">' + data_response[i][2] + '</a></td><td>' + data_response[i][3] + '</td><td>' + data_response[i][4] + '</td></tr>';
+                browse_dna_infor_content += '<tr><td><a href="./search_dna.html" target="_blank">' + data_response[i][2] + '</a></td><td>' + data_response[i][3] + '</td><td>' + data_response[i][4] + '</td></tr>';
               }
               browse_dna_infor_content += '</tbody></table>';
               document.getElementById('browse_dna_information_result').innerHTML = browse_dna_infor_content;
               $('#browse_dna_table1').DataTable({
-                sScrollX: false,
-                scrollX: false,
-                columnDefs: [{ width: '10%', targets: 0 }],
-                // initComplete: function () {
-                //   var api = this.api();
-                //   api.columns().every(function (i) {
-                //     if (i != 0) {
-                //       // 第1 列不添加，其余的添加
-                //       var column = api.column(i);
-                //       var select = $('<select><option value=""></option></select>')
-                //         .appendTo($(column.header()))
-                //         .on('change', function () {
-                //           var val = $.fn.dataTable.util.escapeRegex($(this).val());
+                autoWidth: true,
+                sScrollX: true,
+                scrollY: true,
+                // columnDefs: [{ width: '10%', targets: 0 }],
+                initComplete: function () {
+                  var api = this.api();
+                  api.columns().every(function (i) {
+                    if (i != 0) {
+                      // 第1 列不添加，其余的添加
+                      var column = api.column(i);
+                      var select = $('<select style="width:100%"><option value=""></option></select>')
+                        .appendTo($(column.header()))
+                        .on('change', function () {
+                          var val = $.fn.dataTable.util.escapeRegex($(this).val());
 
-                //           column.search(val ? '^' + val + '$' : '', true, false).draw();
-                //         });
-                //       column
-                //         .data()
-                //         .unique()
-                //         .sort()
-                //         .each(function (d, j) {
-                //           select.append('<option value="' + d + '">' + d + '</option>');
-                //         });
-                //     }
-                //   });
-                // },
+                          column.search(val ? '^' + val + '$' : '', true, false).draw();
+                        });
+                      column
+                        .data()
+                        .unique()
+                        .sort()
+                        .each(function (d, j) {
+                          select.append('<option value="' + d + '">' + d + '</option>');
+                        });
+                    }
+                  });
+                },
               });
               document.getElementById('loader_box').style.display = 'none';
               document.getElementById('browse_dna_main_table1').style.display = 'block';
@@ -352,46 +353,45 @@
           success: function (response) {
             data_response = response;
             if (response.length !== 0) {
-              browse_dna_infor_content2 += '<table id="browse_dna_table2" class="table-bordered table-striped table-hover exmarker_biomarkerDiv_for_table">';
+              browse_dna_infor_content2 += '<table id="browse_dna_table2" class="table table-striped table-hover exmarker_biomarkerDiv_for_table" style="width:100%">';
               // browse_dna_infor_content2+='<thead><tr><th style="visibility:hidden;">HGNC Symbol</th><th style="visibility:hidden;">Alteration</th><th>Tumor Type</th><th>Drugs</th><th>Evidence Level</th></tr></thead>';
-              browse_dna_infor_content2 += '<thead class="thead-dark"><tr><th>HGNC Symbol</th><th>Alteration</th><th>Tumor Type</th><th>Drugs</th><th>Evidence Level</th></tr></thead>';
+              browse_dna_infor_content2 += '<thead class="thead-light"><tr><th>HGNC Symbol</th><th>Alteration</th><th>Tumor Type</th><th>Drugs</th><th>Evidence Level</th></tr></thead>';
               // browse_dna_infor_content2+='<tfoot><tr><th>HGNC Symbol</th><th>Alteration</th><th>Tumor Type</th><th>Drugs</th><th>Evidence Level</th></tr></tfoot>';
               browse_dna_infor_content2 += '<tbody>';
               for (var i = 0; i < data_response.length; i++) {
-                browse_dna_infor_content2 += '<tr><td><a href="./a2.search_DNA.html" target="_blank">' + data_response[i][1] + '</a></td><td>' + data_response[i][2] + '</td><td>' + data_response[i][3] + '</td><td>' + data_response[i][4] + '</td><td>' + data_response[i][5] + '</td></tr>';
+                browse_dna_infor_content2 += '<tr><td><a href="./search_dna.html" target="_blank">' + data_response[i][1] + '</a></td><td>' + data_response[i][2] + '</td><td>' + data_response[i][3] + '</td><td>' + data_response[i][4] + '</td><td>' + data_response[i][5] + '</td></tr>';
               }
               browse_dna_infor_content2 += '</body></table>';
               document.getElementById('browse_dna_oncokb_result').innerHTML = browse_dna_infor_content2;
               $('#browse_dna_table2').DataTable({
-                autoWidth: false,
-                scrollX: false,
-                columnDefs: [{ width: '10%', targets: 0 }],
-                // "autoWidth":false,
-                // "scrollY":false,
+                autoWidth: true,
+                scrollX: true,
+                // columnDefs: [{ width: '10%', targets: 0 }],
+                scrollY: true,
 
-                // initComplete: function () {
-                //   var api = this.api();
-                //   api.columns().every(function (i) {
-                //     if (i != 0) {
-                //       // 第1 列不添加，其余的添加
-                //       var column = api.column(i);
-                //       var select = $('<select><option value=""></option></select>')
-                //         .appendTo($(column.header()))
-                //         .on('change', function () {
-                //           var val = $.fn.dataTable.util.escapeRegex($(this).val());
+                initComplete: function () {
+                  var api = this.api();
+                  api.columns().every(function (i) {
+                    // 第1 列不添加，其余的添加
+                    if (i > 0) {
+                      var column = api.column(i);
+                      var select = $('<select style="width:100%"><option value=""></option></select>')
+                        .appendTo($(column.header()))
+                        .on('change', function () {
+                          var val = $.fn.dataTable.util.escapeRegex($(this).val());
 
-                //           column.search(val ? '^' + val + '$' : '', true, false).draw();
-                //         });
-                //       column
-                //         .data()
-                //         .unique()
-                //         .sort()
-                //         .each(function (d, j) {
-                //           select.append('<option value="' + d + '">' + d + '</option>');
-                //         });
-                //     }
-                //   });
-                // },
+                          column.search(val ? '^' + val + '$' : '', true, false).draw();
+                        });
+                      column
+                        .data()
+                        .unique()
+                        .sort()
+                        .each(function (d, j) {
+                          select.append('<option value="' + d + '">' + d + '</option>');
+                        });
+                    }
+                  });
+                },
               });
               document.getElementById('loader_box').style.display = 'none';
               document.getElementById('browse_dna_main_table2').style.display = 'block';
