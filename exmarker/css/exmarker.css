@@ -21,6 +21,28 @@ table.dataTable {
   margin-bottom: 1em;
 }
 
+.interactive_title{
+  font-size: 2.0em;
+  text-indent: 0.2em
+}
+@media (max-width: 768px) {
+  .interactive_title{
+    font-size: 1.2em;
+    line-height: 1.2em;
+    margin: 0;
+  }
+}
+@media (max-width: 667px) {
+  .interactive_title{
+    font-size: 0.8em;
+    line-height: 0.8em;
+    margin: 0;
+  }
+}
+
+button#sidebarToggleTop{
+  margin: 0;
+}
 
 /* exMarker search section CSS */
 .exmarker_search_box_container {
