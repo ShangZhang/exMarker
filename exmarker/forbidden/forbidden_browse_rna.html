@@ -17,7 +17,7 @@
       function password() {
         var testV = 1; //计数器，记录密码错误次数
         var psw = prompt('exSeek网站内容全新升级！请输入密码：', '');
-        while (testV < 3) {
+        while (testV < 2) {
           if (!psw) {
             history.go(-1); //密码错误返回上一页
           } else if (psw == xx) {
@@ -28,7 +28,7 @@
           }
         }
         if (psw != xx && testV == 3) {
-          alert('密码输入错误！！！请刷新后重新输入密码，或咨询管理员：shang_zhang@foxmail.com'); //密码输入错误达到3次
+          alert('密码输入错误！！！请后退并重新输入密码，或咨询管理员：shang_zhang@foxmail.com'); //密码输入错误达到3次
         }
         return ' ';
       }
