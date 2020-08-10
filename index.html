@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet" />
+    <link href="css/sb-admin-2.css" rel="stylesheet" />
 
     <!-- ExMarker styles -->
     <link rel="stylesheet" href="./exmarker/css/exmarker.css" />
@@ -26,10 +26,10 @@
     <div id="wrapper" >
       <!-- Sidebar -->
       <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" style="position: fixed;" id="accordionSidebar">
-        <!-- Sidebar - Brand -->
+      <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
           <div class="sidebar-brand-icon rotate-n-15">
-            <img class="img-responsive" src="./exmarker/img/exmarker_icon_white.svg" width="42" height="42" alt="exMarker icon" />
+            <img class="img-responsive" src="./exmarker/img/exmarker_icon_white.svg" width="42px" height="42px" alt="exMarker icon" />
           </div>
           <div class="sidebar-brand-text mx-3">exMarker</div>
         </a>
@@ -40,7 +40,6 @@
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
           <a class="nav-link" href="index.html">
-            <!-- <i class="fas fa-fw fa-tachometer-alt"></i> -->
             <i class="fas fa-home"></i>
             <span>Home</span></a
           >
@@ -62,10 +61,10 @@
           </a>
           <div id="collapseEvaluate" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-              <h6 class="collapse-header"
-                >Biomacromolecule <br />
-                Classification:</h6
-              >
+              <h6 class="collapse-header">
+                Biomacromolecule <br />
+                Classification:
+              </h6>
               <a class="collapse-item" href="./exmarker/forbidden/forbidden_search_dna.html">DNA Markers</a>
               <a class="collapse-item" href="./exmarker/forbidden/forbidden_search_rna.html">RNA Markers</a>
               <a class="collapse-item" href="./exmarker/forbidden/forbidden_search_protein.html">Protein Markers</a>
@@ -151,14 +150,12 @@
       </ul>
       <!-- End of Sidebar -->
 
-      <!-- Sidebar 透明的 充当占位置元素-->
-      <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
+      <!-- Sidebar 透明的 充当占位置元素 用于设计成 Sidebar 部分固定的样式-->
+      <ul class="sidebar">
         <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
-          <a class="nav-link" href="index.html"> </a>
+        <li class="nav-item">
+          <a class="nav-link"></a>
         </li>
-
       </ul>
       <!-- End of Sidebar 透明的 充当占位置元素-->
 
@@ -182,12 +179,6 @@
 
           <!-- Begin Page Content -->
           <div class="container-fluid">
-
-            <!-- Page Heading -->
-            <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
-              <h1 class="h3 text-gray-900 alert-link text-capitalize">evaluate exRNA biomarker for liquid biopsy</h1>
-              <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-            </div> -->
 
             <!-- Content Row -->
             <div class="row">
