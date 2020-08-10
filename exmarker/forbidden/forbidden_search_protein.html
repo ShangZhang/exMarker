@@ -16,7 +16,7 @@
     <script>
       function password() {
         var testV = 1; //计数器，记录密码错误次数
-        var psw = prompt('exSeek网站内容全新升级！请输入密码：(没密码？请咨询管理员。)', '');
+        var psw = prompt('exSeek网站内容全新升级！请输入密码：', '');
         while (testV < 3) {
           if (!psw) {
             history.go(-1); //密码错误返回上一页
@@ -24,7 +24,7 @@
             location.href = '../../search_protein.html'; //密码正确，跳到指定页面
             break;
           } else {testV += 1;
-            psw = prompt('网站全新升级！请输入密码：(exSeek网站内容全新升级！请输入密码：(没密码？请咨询管理员。))', '');
+            psw = prompt('exSeek网站内容全新升级！请输入密码：(没密码？请咨询管理员。)', '');
           }
         }
         if (psw != xx && testV == 3) {
