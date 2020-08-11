@@ -156,12 +156,10 @@
 
       <!-- Sidebar 透明的 充当占位置元素-->
       <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
           <a class="nav-link" href="index.html"> </a>
         </li>
-
       </ul>
       <!-- End of Sidebar 透明的 充当占位置元素-->
 
@@ -188,7 +186,7 @@
               </div>
             </form> -->
             <div>
-              <h1 class="h3 text-gray-900 alert-link text-capitalize interactive_title">Browse Protein Markers</h1>
+              <h1 class="h3 text-gray-900 alert-link text-capitalize interactive_title">Browse panel based markers</h1>
             </div>
 
             <!-- 一个检查mobil friendly的小工具，有点画蛇添足 -->
@@ -201,7 +199,7 @@
           <!-- Begin Page Content -->
           <div class="container-fluid" style="height: 90%;">
             <!-- Page Heading -->
-            <!-- <h1 class="h3 mb-4 text-gray-900 alert-link text-capitalize">Browse Protein Markers</h1> -->
+            <!-- <h1 class="h3 mb-4 text-gray-900 alert-link text-capitalize">Browse panel Markers</h1> -->
 
             <!-- exMarker loader section -->
             <div class="text-center" id="loader_box" style="display: none;">
@@ -215,12 +213,12 @@
               <div class="card" id="browse_dna_main_table1">
                 <div class="card-header">
                   <h4>
-                    <a data-toggle="collapse" href="#browse_dna_collapse-1" class="collapsed">Protein biomarkers in exMarker</a>
+                    <a data-toggle="collapse" href="#browse_dna_collapse-1" class="collapsed">Panel based biomarkers in exMarker</a>
                   </h4>
                 </div>
                 <div id="browse_dna_collapse-1" class="collapse show">
                   <div class="card-body">
-                    <div id="browse_protein_information_result"></div>
+                    <div id="browse_panel_information_result"></div>
                   </div>
                 </div>
               </div>
@@ -271,12 +269,12 @@
     <script src="exmarker/Bootstrap-3-Typeahead-master/bootstrap3-typeahead.min.js"></script>
 
     <script>
-      browse_protein_infor_content = '';
-      function browse_protein_get_information(level) {
+      browse_panel_infor_content = '';
+      function browse_panel_get_information(level) {
         var content = $.ajax({
           type: 'GET',
           dataType: 'json',
-          url: './exmarker/php/browse_protein.php',
+          url: './exmarker/php/browse_panel.php',
           data: 'level=' + level,
           error: function (jqXHR, textStatus, errorThrown) {
             console.log('jqXHR:' + jqXHR + '\ntextStatus:' + textStatus + '\nerrorThrown:' + errorThrown);
@@ -284,17 +282,15 @@
           success: function (response) {
             data_response = response;
             if (response.length !== 0) {
-              browse_protein_infor_content += '<table id="browse_protein_table" class="table table-striped table-hover exmarker_biomarkerDiv_for_table" style="width:100%">';
-              // browse_protein_infor_content+='<thead><tr><th style="visibility:hidden;">Protein Name</th><th>Disease Type</th><th>Evidence Level</th></tr></thead>';
-              browse_protein_infor_content += '<thead class="thead-light"><tr><th>Protein Name</th><th>Disease Type</th><th>Evidence Level</th></tr></thead>';
-              // browse_protein_infor_content+='<tfoot><tr><th>Protein Name</th><th>Disease Type</th><th>Evidence Level</th></tr></tfoot>';
-              browse_protein_infor_content += '<body>';
+              browse_panel_infor_content += '<table id="browse_panel_table" class="table table-striped table-hover exmarker_biomarkerDiv_for_table" style="width:100%">';
+              browse_panel_infor_content += '<thead class="thead-light"><tr><th>Disease</th><th>Marker Type</th><th>Specimen</th><th>Panel Information</th><th>Panel Composition</th><th>Sample Size</th><th>Panel AUC</th><th>Reference</th><th>Journal</th><th>Impact Factor</th></tr></thead>';
+              browse_panel_infor_content += '<body>';
               for (var i = 0; i < response.length; i++) {
-                browse_protein_infor_content += '<tr><td><a href="./a2.search_protein.html" target="_blank">' + data_response[i][2] + '<a></td><td>' + data_response[i][3] + '</td><td>' + data_response[i][4] + '</td></tr>';
+                browse_panel_infor_content += '<tr><td>' + data_response[i][1] + '</td><td>' + data_response[i][2] + '</td><td>' + data_response[i][3] + '</td><td>' + data_response[i][4] + '</td><td>' + data_response[i][5] + '</td><td>' + data_response[i][6] + '</td><td>' + data_response[i][7] + '</td><td>' + data_response[i][8] + '</td><td>' + data_response[i][9] + '</td><td>' + data_response[i][10] + '</td></tr>';
               }
-              browse_protein_infor_content += '</body></table>';
-              document.getElementById('browse_protein_information_result').innerHTML = browse_protein_infor_content;
-              $('#browse_protein_table').DataTable({
+              browse_panel_infor_content += '</body></table>';
+              document.getElementById('browse_panel_information_result').innerHTML = browse_panel_infor_content;
+              $('#browse_panel_table').DataTable({
                 autoWidth: true,
                 sScrollX: true,
                 scrollY: true,
@@ -303,7 +299,7 @@
                 initComplete: function () {
                   var api = this.api();
                   api.columns().every(function (i) {
-                    if (i != 0) {
+                    if (i < 3) {
                       // 第1 列不添加，其余的添加
                       var column = api.column(i);
                       var select = $('<select style="width:100%"><option value=""></option></select>')
@@ -324,8 +320,8 @@
                   });
                 },
               });
-              document.getElementById('browse_protein_loader_box1').style.display = 'none';
-              document.getElementById('browse_protein_main_table').style.display = 'block';
+              document.getElementById('browse_panel_loader_box1').style.display = 'none';
+              document.getElementById('browse_panel_main_table').style.display = 'block';
             }
             console.log(response);
             return response;
@@ -334,7 +330,7 @@
         return content;
       }
 
-      browse_protein_get_information('Level 2');
+      browse_panel_get_information('Level 2');
     </script>
   </body>
 </html>
