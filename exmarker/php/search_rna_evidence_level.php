@@ -1,6 +1,6 @@
 <?php
 ini_set('memory_limit', '1024M');
-$db = new PDO('mysql:host=localhost;dbname=bdlb1_1', 'root', '');
+$db = new PDO('mysql:host=localhost;dbname=bdlb1_2', 'root', '');
 $table='browse_RNA';
 
 $msgArray = array('code'=>0, 'data'=>array(), 'message'=>'参数接收错误，请关闭浏览器后重试。');
