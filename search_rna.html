@@ -20,6 +20,9 @@
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" />
 
+    <!-- 引入 echarts.js -->
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+
     <!-- ExMarker styles -->
     <link rel="stylesheet" href="./exmarker/css/exmarker.css" />
   </head>
@@ -321,7 +324,13 @@
                     </div>
                   </div>
                 </div>
+
+                <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+                <div id="show_expression_plot" style="width: 800px; height: 400px; display: none;"></div>
+
               </div>
+
+              
 
               <div class="card">
                 <div class="card-header">
@@ -494,11 +503,11 @@
             if (response.length !== 0) {
               infor_content2 += '<table id="example3" class="table table-striped table-hover exmarker_biomarkerDiv_for_table" style="width:100%">';
               infor_content2 += '<thead class="thead-light"><tr><th>Datasets</th><th>RNA source</th><th>Comparison</th><th>Sample size</th>';
-              infor_content2 += '<th>Detection frequency</th><th>Expression Negative<i data-toggle="tooltip" data-placement="bottom" title="Expression Negative means the left one in the `Comparison` Column." style="color:#4E73DF" class="fa fa-question-circle"></i></th><th>Expression Positive<i data-toggle="tooltip" data-placement="bottom" title="Expression Positive means the right one in the `Comparison` Column." style="color:#4E73DF" class="fa fa-question-circle"></i></th>';
+              infor_content2 += '<th>Detection frequency</th><th>Expression Negative<i data-toggle="tooltip" data-placement="bottom" title="Expression Negative means the left one in the `Comparison` Column." style="color:#4E73DF" class="fa fa-question-circle"></i></th><th>Expression Positive<i data-toggle="tooltip" data-placement="bottom" title="Expression Positive means the right one in the `Comparison` Column." style="color:#4E73DF" class="fa fa-question-circle"></i></th><th>Expression Plot</th>';
               infor_content2 += '</tr></thead><body>';
               for (var i = 0; i < response.length; i++) {
                 infor_content2 += '<tr><td>' + data_response[i][8] + '</td><td>' + data_response[i][9] + ' ' + data_response[i][10] + '</td><td>' + data_response[i][12] + '</td><td>' + data_response[i][13] + '</td>';
-                infor_content2 += '<td>' + data_response[i][14] + '</td><td>' + data_response[i][15] + '</td><td>' + data_response[i][16] + '</td>';
+                infor_content2 += '<td>' + data_response[i][14] + '</td><td>' + data_response[i][15] + '</td><td>' + data_response[i][16] + '</td><td><button type="button" onclick="show_expression_plot(' + data_response[i][15] + ',' + data_response[i][15] + ')">Plot</button></td>';
                 infor_content2 += '</tr>';
               }
               infor_content2 += '</body></table>';
@@ -774,6 +783,42 @@
           },
         });
         return content;
+      }
+
+      // 用于显示expression information plot图像
+      function show_expression_plot(value1, value2){
+        document.getElementById('show_expression_plot').style.display = 'block';
+        // console.log(dataset);
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('show_expression_plot', 'dark'));
+
+        // 指定图表的配置项和数据
+        var option = {
+          title: {
+            text: 'Expression aboundance in the datasets.',
+            x:'center',
+            y:'top',
+            textAlign:'center'
+          },
+          tooltip: {},
+          legend: {
+            data: ['Expression'],
+          },
+          xAxis: {
+            data: ['Expression Negative', 'Expression Positive'],
+          },
+          yAxis: {},
+          series: [
+            {
+              name: 'Expression',
+              type: 'bar',
+              data: [value1, value2],
+            },
+          ],
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
       }
 
       // typeahead 和 ajax 技术结合，实现动态查询

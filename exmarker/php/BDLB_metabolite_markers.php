@@ -21,4 +21,3 @@ function gtfinfor($gene_name,$table){
 }
 $response=gtfinfor($gene_name,$table);
 echo json_encode($response);
-?>
