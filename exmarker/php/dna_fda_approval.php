@@ -1,5 +1,8 @@
 <?php
 ini_set('memory_limit', '1024M');
+// lulab.tsinghua.edu.cn/exmarker 上数据库的用户名和密码
+// $db = new PDO('mysql:host=localhost;dbname=bdlb1_2', 'root', '929daca0bb41a0c9');
+// mac 上 XAMPP 上的用户名和密码
 $db = new PDO('mysql:host=localhost;dbname=bdlb1_2', 'root', '');
 $table='FDA_approved_DNA_markers';
 
