@@ -830,7 +830,7 @@
             // ajax获取数据表中的HGNC_Symbol列中的内容，最终形成的是一个没有重复项的js数组
             type: 'GET',
             dataType: 'json',
-            url: 'exmarker/php/typeahead/typeahead_search_dna_markers.php',
+            url: 'exmarker/php/typeahead/typeahead_search_rna_markers.php',
             success: function (response) {
               if (response.length !== 0) {
                 for (var i = 0; i < response.length; i++) {
